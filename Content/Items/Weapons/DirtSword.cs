@@ -10,7 +10,7 @@ namespace WBHMODE.Content.Items.Weapons
         public override void SetDefaults()
         {
             Item.damage = 1; // 伤害
-            Item.DamageType = DamageClass.Melee; // 上海类型
+            Item.DamageType = DamageClass.Melee; // 伤害类型
             Item.width = 50; // 宽
             Item.height = 50; // 高
             //  Weapons usually have equal <see cref="useAnimation"/> and useTime, unequal values for these two results in multiple attacks per click.
