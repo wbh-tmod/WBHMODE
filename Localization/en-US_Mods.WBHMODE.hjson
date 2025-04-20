@@ -1,0 +1,17 @@
+Items: {
+	DirtSword: {
+		DisplayName: Dirt Sword
+		Tooltip:
+			'''
+			A sword made of dirt
+			Not painful, but useful
+			'''
+	}
+
+	DirtMagic: {
+		DisplayName: Dirt Magic
+		Tooltip: A magic weapon creates shit to hit your enemy
+	}
+}
+
+Projectiles.DirtMagicShit.DisplayName: Dirt Magic Shit
