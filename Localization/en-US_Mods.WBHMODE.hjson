@@ -17,6 +17,11 @@ Items: {
 		DisplayName: Dirt Arrow
 		Tooltip: Some arrow made of dirt, cheap but useless
 	}
+
+	FlowingStone: {
+		DisplayName: Flowing Stone
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
