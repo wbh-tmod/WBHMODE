@@ -12,6 +12,14 @@ Items: {
 		DisplayName: Dirt Magic
 		Tooltip: A magic weapon creates shit to hit your enemy
 	}
+
+	DirtArrow: {
+		DisplayName: Dirt Arrow
+		Tooltip: Some arrow made of dirt, cheap but useless
+	}
 }
 
-Projectiles.DirtMagicShit.DisplayName: Dirt Magic Shit
+Projectiles: {
+	DirtMagicShit.DisplayName: Dirt Magic Shit
+	DirtArrow.DisplayName: Dirt Arrow
+}
