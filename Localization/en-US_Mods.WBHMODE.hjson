@@ -22,9 +22,16 @@ Items: {
 		DisplayName: Flowing Stone
 		Tooltip: ""
 	}
+
+	FlowingSandBlock: {
+		DisplayName: Flowing Sand Block
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
 	DirtMagicShit.DisplayName: Dirt Magic Shit
 	DirtArrow.DisplayName: Dirt Arrow
+	FlowingSandBallFallingProjectile.DisplayName: Flowing Sand Ball Falling Projectile
+	FlowingSandBallGunProjectile.DisplayName: Flowing Sand Ball Gun Projectile
 }

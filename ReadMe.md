@@ -30,7 +30,7 @@
      |---Armor(装备)
      |---Consumables(消耗品)
      |---Mounts(坐骑)
-     |---Placeable(放置物)
+     |---Placeable(放置物，在手中)
      |---Tools(工具)
      |---Weapons(武器)
      |---Materials(材料)
@@ -41,23 +41,15 @@
   |---Prefixes(前缀)
   |---Projectiles(弹幕)
   |---TileEntities(物块实体)
-  |---Tiles(物块)
+  |---Tiles(物块，在地面)
      |---Ores(矿物)
   |---Walls(墙)
 ```
 
 # WBH_MODE
-## 泥土套
-·泥土剑
 
-·泥土弓
+## 已实现
 
-·泥土喷枪
-
-·泥土法杖
-
-·泥土头盔
-
-·泥土胸甲
-
-·泥土护胫
+流动石块 FlowingStone<br>
+流动沙块 FlowingSand<br>
+流动沙块弹幕 FlowingSandBallFallingProjectile<br>
