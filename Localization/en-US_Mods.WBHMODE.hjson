@@ -27,6 +27,11 @@ Items: {
 		DisplayName: Flowing Sand Block
 		Tooltip: ""
 	}
+
+	LiquidGoldOre: {
+		DisplayName: Liquid Gold Ore
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -34,4 +39,11 @@ Projectiles: {
 	DirtArrow.DisplayName: Dirt Arrow
 	FlowingSandBallFallingProjectile.DisplayName: Flowing Sand Ball Falling Projectile
 	FlowingSandBallGunProjectile.DisplayName: Flowing Sand Ball Gun Projectile
+}
+
+Tiles.LiquidGoldOre.MapEntry: Liquid Gold Ore
+
+WorldGen: {
+	LiquidGoldOrePassMessage: Mods.WBHMODE.WorldGen.LiquidGoldOrePassMessage
+	BlessedWithLiquidGoldOreMessage: Mods.WBHMODE.WorldGen.BlessedWithLiquidGoldOreMessage
 }
