@@ -34,6 +34,8 @@ namespace WBHMODE.Content.Tiles
 
             DustType = 84;
             HitSound = SoundID.Tink;
+            //MineResist = 4f;
+            MinPick = 55;
         }
         public override bool IsTileBiomeSightable(int i, int j, ref Color sightColor)
         {
