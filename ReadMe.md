@@ -53,3 +53,4 @@
 流动石块 FlowingStone<br>
 流动沙块 FlowingSand<br>
 流动沙块弹幕 FlowingSandBallFallingProjectile<br>
+液金矿 LiquidGoldOre<br>

@@ -35,3 +35,10 @@ Projectiles: {
 	FlowingSandBallFallingProjectile.DisplayName: Flowing Sand Ball Falling Projectile
 	FlowingSandBallGunProjectile.DisplayName: Flowing Sand Ball Gun Projectile
 }
+
+Tiles.LiquidGoldOre.MapEntry: Liquid Gold Ore
+
+WorldGen: {
+	LiquidGoldOrePassMessage: Mods.WBHMODE.WorldGen.LiquidGoldOrePassMessage
+	BlessedWithLiquidGoldOreMessage: Mods.WBHMODE.WorldGen.BlessedWithLiquidGoldOreMessage
+}
