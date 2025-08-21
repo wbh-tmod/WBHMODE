@@ -52,3 +52,10 @@ WorldGen: {
 	LiquidGoldOrePassMessage: Mods.WBHMODE.WorldGen.LiquidGoldOrePassMessage
 	BlessedWithLiquidGoldOreMessage: Mods.WBHMODE.WorldGen.BlessedWithLiquidGoldOreMessage
 }
+
+Buffs: {
+	AcidEtchingBuff: {
+		DisplayName: Acid Etching Buff
+		Description: Mods.WBHMODE.Buffs.AcidEtchingBuff.Description
+	}
+}

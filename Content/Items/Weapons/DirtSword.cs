@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using WBHMODE.Content.Buffs;
 
 namespace WBHMODE.Content.Items.Weapons
 {
@@ -29,6 +30,10 @@ namespace WBHMODE.Content.Items.Weapons
             recipe.AddIngredient(ItemID.DirtBlock, 1); // 合成配方
             //recipe.AddTile(TileID.WorkBenches); // 合成台
             recipe.Register();
+        }
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            target.AddBuff(ModContent.BuffType<AcidEtchingBuff>(), 600);
         }
     }
 
