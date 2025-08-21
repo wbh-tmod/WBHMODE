@@ -32,6 +32,11 @@ Items: {
 		DisplayName: Liquid Gold Ore
 		Tooltip: ""
 	}
+
+	EtchingLiquidBlade: {
+		DisplayName: Etching Liquid Swing Sword
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
