@@ -23,10 +23,10 @@ namespace WBHMODE.Content.Items.Weapons
             Item.width = 50; // 宽
             Item.height = 50; // 高
             //  Weapons usually have equal <see cref="useAnimation"/> and useTime, unequal values for these two results in multiple attacks per click.
-            Item.useTime = 10; // 攻速(帧)
-            Item.useAnimation = 10; // 攻速(帧)
+            Item.useTime = 8; // 攻速(帧)
+            Item.useAnimation = 8; // 攻速(帧)
             Item.useStyle = ItemUseStyleID.Swing; // 使用方式
-            Item.knockBack = 1; // 击退
+            Item.knockBack = 0; // 击退
             Item.value = Item.buyPrice(copper: 1); // 售价
             Item.rare = ItemRarityID.White; // 稀有度
             Item.UseSound = SoundID.Item1; // 音效

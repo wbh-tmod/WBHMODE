@@ -13,10 +13,10 @@ namespace WBHMODE.Content.Buffs
         public override void Update(NPC npc, ref int buffIndex)
         {
             float v = (float)Math.Sqrt(npc.velocity.X * npc.velocity.X + npc.velocity.Y * npc.velocity.Y);
-            if (npc.lifeRegen > 0)
-            {
-                npc.lifeRegen = 0;
-            }
+            //if (npc.lifeRegen > 0)
+            //{
+            //    npc.lifeRegen = 0;
+            //}
             npc.lifeRegen -= (int)v;
         }
     }
