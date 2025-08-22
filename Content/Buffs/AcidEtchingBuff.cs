@@ -17,7 +17,10 @@ namespace WBHMODE.Content.Buffs
             //{
             //    npc.lifeRegen = 0;
             //}
-            npc.lifeRegen -= (int)v;
+            if (Main.time % 60 == 0)
+            {
+                npc.lifeRegen -= 50 * (int)v;
+            }
         }
     }
 }
