@@ -19,6 +19,7 @@ namespace WBHMODE.Content.Items.Weapons
         public override void SetDefaults()
         {
             Item.damage = 11; // 伤害
+            Item.scale = 2f;
             Item.DamageType = DamageClass.Melee; // 伤害类型
             Item.width = 50; // 宽
             Item.height = 50; // 高
