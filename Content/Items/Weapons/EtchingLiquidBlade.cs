@@ -22,8 +22,8 @@ namespace WBHMODE.Content.Items.Weapons
             Item.damage = 11; // 伤害
             Item.scale = 2f;
             Item.DamageType = DamageClass.Melee; // 伤害类型
-            Item.width = 50; // 宽
-            Item.height = 50; // 高
+            Item.width = 40; // 宽
+            Item.height = 40; // 高
             //  Weapons usually have equal <see cref="useAnimation"/> and useTime, unequal values for these two results in multiple attacks per click.
             Item.useTime = 8; // 攻速(帧)
             Item.useAnimation = 8; // 攻速(帧)
