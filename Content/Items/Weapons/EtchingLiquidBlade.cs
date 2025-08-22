@@ -49,7 +49,7 @@ namespace WBHMODE.Content.Items.Weapons
         }
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<AcidEtchingBuff>(), 600);
+            target.AddBuff(ModContent.BuffType<AcidEtchingBuff>(), 150);
         }
     }
 }
