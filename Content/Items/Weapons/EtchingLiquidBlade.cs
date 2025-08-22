@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using WBHMODE.Content.Buffs;
@@ -49,12 +51,15 @@ namespace WBHMODE.Content.Items.Weapons
         }
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            Random random = new Random();
-            int value = random.Next(5);
+            int value = Main.rand.Next(5);
             if (value == 0)
             {
                 target.AddBuff(ModContent.BuffType<AcidEtchingBuff>(), 150);
             }
+        }
+        public override void MeleeEffects(Player player, Rectangle hitbox)
+        {
+            Dust dust = Dust.NewDustDirect(hitbox.TopLeft(), hitbox.Width, hitbox.Height, DustID.IceTorch);
         }
     }
 }
