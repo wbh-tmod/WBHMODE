@@ -9,6 +9,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using WBHMODE.Content.Buffs;
+using WBHMODE.Content.Items.Materials;
 
 namespace WBHMODE.Content.Items.Weapons
 {
@@ -28,16 +29,20 @@ namespace WBHMODE.Content.Items.Weapons
             Item.useAnimation = 8; // 攻速(帧)
             Item.useStyle = ItemUseStyleID.Swing; // 使用方式
             Item.knockBack = 0; // 击退
-            Item.value = Item.buyPrice(copper: 1); // 售价
+            Item.value = Item.buyPrice(silver: 27); // 售价
             Item.rare = ItemRarityID.White; // 稀有度
             Item.UseSound = SoundID.Item1; // 音效
             Item.autoReuse = true; // 自动攻击
         }
         public override void AddRecipes()
         {
-#if DEBUG
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.DirtBlock, 1); // 合成配方
+            recipe.AddIngredient(ModContent.ItemType<LiquidGoldBar>(), 10); // 合成配方
+            recipe.AddTile(TileID.Anvils); // 合成台
+            recipe.Register();
+#if DEBUG
+            recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<LiquidGoldBar>(), 10); // 合成配方
             //recipe.AddTile(TileID.WorkBenches); // 合成台
             recipe.Register();
 #endif

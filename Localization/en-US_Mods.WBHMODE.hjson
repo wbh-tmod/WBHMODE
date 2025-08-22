@@ -37,6 +37,11 @@ Items: {
 		DisplayName: Etching Liquid Swing Sword
 		Tooltip: ""
 	}
+
+	LiquidGoldBar: {
+		DisplayName: Liquid Gold Bar
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
