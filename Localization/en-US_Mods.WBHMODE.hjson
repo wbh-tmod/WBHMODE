@@ -56,7 +56,10 @@ Projectiles: {
 	FlowingSandBallGunProjectile.DisplayName: Flowing Sand Ball Gun Projectile
 }
 
-Tiles.LiquidGoldOre.MapEntry: Liquid Gold Ore
+Tiles: {
+	LiquidGoldOre.MapEntry: Liquid Gold Ore
+	VoidMushroom.MapEntry: Void Mushroom
+}
 
 WorldGen: {
 	LiquidGoldOrePassMessage: Mods.WBHMODE.WorldGen.LiquidGoldOrePassMessage
