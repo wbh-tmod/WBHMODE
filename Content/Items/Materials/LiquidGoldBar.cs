@@ -43,7 +43,7 @@ namespace WBHMODE.Content.Items.Materials
                 Register();
 #if DEBUG
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.DirtBlock, 1); // 合成配方
+            recipe.AddIngredient(ItemID.DirtBlock, 3); // 合成配方
             recipe.AddTile(TileID.WorkBenches); // 合成台
             recipe.ReplaceResult(ModContent.ItemType<LiquidGoldBar>(), 100);
             recipe.Register();
