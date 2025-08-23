@@ -47,6 +47,11 @@ Items: {
 		DisplayName: Void Mushroom
 		Tooltip: ""
 	}
+
+	FlowingStonePhase: {
+		DisplayName: Flowing Stone Phase
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
