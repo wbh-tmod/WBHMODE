@@ -42,6 +42,11 @@ Items: {
 		DisplayName: Liquid Gold Bar
 		Tooltip: ""
 	}
+
+	VoidMushroom: {
+		DisplayName: Void Mushroom
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
