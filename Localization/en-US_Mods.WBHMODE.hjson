@@ -57,6 +57,11 @@ Items: {
 		DisplayName: Elimination Pickaxe
 		Tooltip: ""
 	}
+
+	AbnormalAxe: {
+		DisplayName: Abnormal Axe
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

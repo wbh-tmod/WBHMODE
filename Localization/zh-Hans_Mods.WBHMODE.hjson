@@ -53,6 +53,11 @@ Items: {
 		DisplayName: 删除镐
 		Tooltip: ""
 	}
+
+	AbnormalAxe: {
+		// DisplayName: Abnormal Axe
+		// Tooltip: ""
+	}
 }
 
 Projectiles: {
