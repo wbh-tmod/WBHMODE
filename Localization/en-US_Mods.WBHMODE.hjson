@@ -52,6 +52,11 @@ Items: {
 		DisplayName: Flowing Stone Phase
 		Tooltip: ""
 	}
+
+	EliminationPickaxe: {
+		DisplayName: Elimination Pickaxe
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
