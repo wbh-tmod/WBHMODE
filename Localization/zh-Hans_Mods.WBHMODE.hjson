@@ -1,0 +1,80 @@
+Items: {
+	DirtSword: {
+		DisplayName: Dirt Sword
+		Tooltip: ""
+	}
+
+	DirtMagic: {
+		DisplayName: Dirt Magic
+		Tooltip: ""
+	}
+
+	DirtArrow: {
+		DisplayName: Dirt Arrow
+		Tooltip: ""
+	}
+
+	FlowingStone: {
+		DisplayName: 流动石块
+		Tooltip: ""
+	}
+
+	FlowingSandBlock: {
+		DisplayName: 流动沙块
+		Tooltip: ""
+	}
+
+	LiquidGoldOre: {
+		DisplayName: 液金矿
+		Tooltip: ""
+	}
+
+	EtchingLiquidBlade: {
+		DisplayName: 不复往昔
+		Tooltip: ""
+	}
+
+	LiquidGoldBar: {
+		DisplayName: 液金锭
+		Tooltip: ""
+	}
+
+	VoidMushroom: {
+		DisplayName: 虚蘑菇
+		Tooltip: ""
+	}
+
+	FlowingStonePhase: {
+		DisplayName: 流动石相
+		Tooltip: ""
+	}
+
+	EliminationPickaxe: {
+		DisplayName: 删除镐
+		Tooltip: ""
+	}
+}
+
+Projectiles: {
+	// DirtMagicShit.DisplayName: Dirt Magic Shit
+	// DirtArrow.DisplayName: Dirt Arrow
+	// FlowingSandBallFallingProjectile.DisplayName: Flowing Sand Ball Falling Projectile
+	// FlowingSandBallGunProjectile.DisplayName: Flowing Sand Ball Gun Projectile
+}
+
+Tiles: {
+	LiquidGoldOre.MapEntry: 液金矿
+	VoidMushroom.MapEntry: 虚蘑菇
+}
+
+WorldGen: {
+	// LiquidGoldOrePassMessage: Mods.WBHMODE.WorldGen.LiquidGoldOrePassMessage
+	// BlessedWithLiquidGoldOreMessage: Mods.WBHMODE.WorldGen.BlessedWithLiquidGoldOreMessage
+}
+
+Buffs: {
+	AcidEtchingBuff: {
+		// DisplayName: Acid Etching Buff
+		// Description: Mods.WBHMODE.Buffs.AcidEtchingBuff.Description
+	}
+}

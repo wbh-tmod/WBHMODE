@@ -7,6 +7,9 @@
 	<PropertyGroup>
 		
 	</PropertyGroup>
+	<ItemGroup>
+	  <AdditionalFiles Remove="Localization\zh-Hans_Mods.WBHMODE.hjson" />
+	</ItemGroup>
 
 	<!-- References -->
 
