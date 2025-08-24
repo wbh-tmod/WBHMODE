@@ -26,7 +26,7 @@ namespace WBHMODE.Content.Items.Materials
             Item.height = 24;
             Item.createTile = ModContent.TileType<LiquidGoldBarTile>();
             Item.maxStack = 9999;
-            Item.value = Item.sellPrice(silver: 35); // 售价
+            Item.value = Item.sellPrice(silver: 33); // 售价
             Item.rare = ItemRarityID.Blue;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;

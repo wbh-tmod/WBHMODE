@@ -18,6 +18,7 @@ namespace WBHMODE.Content.Items.Placeable
         {
             Item.ResearchUnlockCount = 100;
             ItemID.Sets.SortingPriorityMaterials[Item.type] = 58;
+            Item.value = Item.sellPrice(silver: 11); // 售价
 
             // This ore can spawn in slime bodies like other pre-boss ores. (copper, tin, iron, etch)
             // It will drop in amount from 3 to 13.

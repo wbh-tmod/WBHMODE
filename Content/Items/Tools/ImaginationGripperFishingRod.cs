@@ -23,7 +23,7 @@ namespace WBHMODE.Content.Items.Tools
         {
             Item.CloneDefaults(ItemID.WoodFishingPole);
 
-            Item.value = Item.sellPrice(gold: 2, silver: 80); // 售价
+            Item.value = Item.sellPrice(gold: 2, silver: 64); // 售价
             Item.rare = ItemRarityID.Blue;
             Item.fishingPole = 24; // Sets the poles fishing power
             Item.shootSpeed = 14f; // Sets the speed in which the bobbers are launched. Wooden Fishing Pole is 9f and Golden Fishing Rod is 17f.
