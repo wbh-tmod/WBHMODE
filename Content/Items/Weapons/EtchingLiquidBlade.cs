@@ -21,7 +21,7 @@ namespace WBHMODE.Content.Items.Weapons
         //public int comboExpireTimer = 0; // we want the attack pattern to reset if the weapon is not used for certain period of time
         public override void SetDefaults()
         {
-            Item.damage = 11; // 伤害
+            Item.damage = 13; // 伤害
             Item.scale = 2f;
             Item.DamageType = DamageClass.Melee; // 伤害类型
             Item.width = 40; // 宽
