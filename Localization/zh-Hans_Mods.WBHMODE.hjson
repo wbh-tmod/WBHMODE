@@ -55,12 +55,12 @@ Items: {
 	}
 
 	AbnormalAxe: {
-		// DisplayName: Abnormal Axe
+		DisplayName: 不正常斧
 		// Tooltip: ""
 	}
 
 	FakeHammer: {
-		// DisplayName: Fake Hammer
+		DisplayName: 不真实锤
 		// Tooltip: ""
 	}
 }
