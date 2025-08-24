@@ -58,6 +58,11 @@ Items: {
 		// DisplayName: Abnormal Axe
 		// Tooltip: ""
 	}
+
+	FakeHammer: {
+		// DisplayName: Fake Hammer
+		// Tooltip: ""
+	}
 }
 
 Projectiles: {

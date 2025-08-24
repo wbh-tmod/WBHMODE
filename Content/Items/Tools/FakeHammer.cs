@@ -1,6 +1,4 @@
-﻿#define DEBUG
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,29 +6,29 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 using WBHMODE.Content.Items.Materials;
+using Microsoft.Xna.Framework;
 
 namespace WBHMODE.Content.Items.Tools
 {
-    public class AbnormalAxe : ModItem
+    public class FakeHammer : ModItem
     {
         public override void SetDefaults()
         {
-            Item.damage = 17;
+            Item.damage = 20;
             Item.DamageType = DamageClass.Melee;
             Item.width = 40;
             Item.height = 40;
-            Item.useTime = 27;
-            Item.useAnimation = 15;
+            Item.useTime = 32;
+            Item.useAnimation = 19;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 5;
-            Item.value = Item.buyPrice(silver: 27);
+            Item.value = Item.buyPrice(silver: 30);
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true; // Automatically re-swing/re-use this item after its swinging animation is over.
 
-            Item.axe = 15; // How much axe power the weapon has, note that the axe power displayed in-game is this value multiplied by 5
+            Item.hammer = 55; // How much hammer power the weapon has
             Item.attackSpeedOnlyAffectsWeaponAnimation = true; // Melee speed affects how fast the tool swings for damage purposes, but not how fast it can dig
         }
         public override void MeleeEffects(Player player, Rectangle hitbox)
@@ -44,11 +42,13 @@ namespace WBHMODE.Content.Items.Tools
         {
             CreateRecipe()
                 .AddIngredient(ModContent.ItemType<LiquidGoldBar>(), 10)
+                .AddIngredient(ModContent.ItemType<FlowingStonePhase>(), 5)
                 .AddTile(TileID.Anvils)
                 .Register();
 #if DEBUG
             CreateRecipe()
                 .AddIngredient(ModContent.ItemType<LiquidGoldBar>(), 10)
+                .AddIngredient(ModContent.ItemType<FlowingStonePhase>(), 5)
                 .Register();
 #endif
         }
