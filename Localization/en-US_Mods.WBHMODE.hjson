@@ -67,6 +67,11 @@ Items: {
 		DisplayName: Fake Hammer
 		Tooltip: ""
 	}
+
+	ImaginationGripperFishingRod: {
+		DisplayName: Imagination Gripper Fishing Rod
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -74,6 +79,7 @@ Projectiles: {
 	DirtArrow.DisplayName: Dirt Arrow
 	FlowingSandBallFallingProjectile.DisplayName: Flowing Sand Ball Falling Projectile
 	FlowingSandBallGunProjectile.DisplayName: Flowing Sand Ball Gun Projectile
+	ImaginationGripperBobber.DisplayName: Imagination Gripper Bobber
 }
 
 Tiles: {
