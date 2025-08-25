@@ -21,10 +21,10 @@ namespace WBHMODE.Content.Items.Tools
             Item.DamageType = DamageClass.Melee;
             Item.width = 40;
             Item.height = 40;
-            Item.useTime = 27;
+            Item.useTime = 20;
             Item.useAnimation = 15;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.knockBack = 5;
+            Item.knockBack = 4;
             Item.value = Item.buyPrice(silver: 27);
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item1;
