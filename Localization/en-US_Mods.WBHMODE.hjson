@@ -72,6 +72,11 @@ Items: {
 		DisplayName: Imagination Gripper Fishing Rod
 		Tooltip: ""
 	}
+
+	PhantomBow: {
+		DisplayName: Phantom Bow
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

@@ -68,6 +68,11 @@ Items: {
 		DisplayName: 臆想抓手
 		Tooltip: ""
 	}
+
+	PhantomBow: {
+		DisplayName: 虚影弓
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
