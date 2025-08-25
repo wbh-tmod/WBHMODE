@@ -77,6 +77,11 @@ Items: {
 		DisplayName: Phantom Bow
 		Tooltip: ""
 	}
+
+	TearingMask: {
+		DisplayName: Tearing Mask
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -85,6 +90,8 @@ Projectiles: {
 	FlowingSandBallFallingProjectile.DisplayName: Flowing Sand Ball Falling Projectile
 	FlowingSandBallGunProjectile.DisplayName: Flowing Sand Ball Gun Projectile
 	ImaginationGripperBobber.DisplayName: Imagination Gripper Bobber
+	TearingMaskProjectile.DisplayName: Tearing Mask Projectile
+	TearingMaskFog.DisplayName: Tearing Mask Fog
 }
 
 Tiles: {
