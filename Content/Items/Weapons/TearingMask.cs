@@ -27,8 +27,8 @@ namespace WBHMODE.Content.Items.Weapons
             Item.damage = 1;
             Item.DamageType = DamageClass.Magic;
             Item.mana = 8;
-            Item.useTime = 25;
-            Item.useAnimation = 25;
+            Item.useTime = 35;
+            Item.useAnimation = 35;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 5f;

@@ -22,6 +22,7 @@ namespace WBHMODE.Content.Projectiles
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 60;
             Projectile.DamageType = DamageClass.Magic;
+            Projectile.knockBack = 5f;
         }
         public override void AI()
         {
