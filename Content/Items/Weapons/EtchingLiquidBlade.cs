@@ -54,7 +54,7 @@ namespace WBHMODE.Content.Items.Weapons
             int value = Main.rand.Next(5);
             if (value == 0)
             {
-                target.AddBuff(ModContent.BuffType<AcidEtchingBuff>(), 150);
+                target.AddBuff(ModContent.BuffType<AcidEtchingDebuff>(), 150);
             }
         }
         public override void MeleeEffects(Player player, Rectangle hitbox)

@@ -101,8 +101,8 @@ WorldGen: {
 }
 
 Buffs: {
-	AcidEtchingBuff: {
-		// DisplayName: Acid Etching Buff
-		// Description: Mods.WBHMODE.Buffs.AcidEtchingBuff.Description
+	AcidEtchingDebuff: {
+		// DisplayName: Acid Etching Debuff
+		// Description: Mods.WBHMODE.Buffs.AcidEtchingDebuff.Description
 	}
 }
