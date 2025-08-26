@@ -10,6 +10,11 @@ namespace WBHMODE.Content.Buffs
 {
     public class AcidEtchingBuff : ModBuff
     {
+        public override void SetStaticDefaults()
+        {
+            Main.debuff[Type] = true;
+            Main.pvpBuff[Type] = true;
+        }
         public override void Update(NPC npc, ref int buffIndex)
         {
             float v = (float)Math.Sqrt(npc.velocity.X * npc.velocity.X + npc.velocity.Y * npc.velocity.Y);
