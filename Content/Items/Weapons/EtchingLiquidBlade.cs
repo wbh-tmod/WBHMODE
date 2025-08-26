@@ -35,6 +35,7 @@ namespace WBHMODE.Content.Items.Weapons
             Item.rare = ItemRarityID.White; // 稀有度
             Item.UseSound = SoundID.Item1; // 音效
             Item.autoReuse = true; // 自动攻击
+            Item.useTurn = true;
         }
         public override void AddRecipes()
         {
