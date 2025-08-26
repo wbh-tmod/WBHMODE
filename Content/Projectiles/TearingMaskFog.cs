@@ -14,6 +14,7 @@ namespace WBHMODE.Content.Projectiles
         public override void SetStaticDefaults() => ProjectileID.Sets.CultistIsResistantTo[Type] = true;
         public override void SetDefaults()
         {
+            Projectile.alpha = 114;
             Projectile.width = 40;
             Projectile.height = 40;
             Projectile.friendly = true;
