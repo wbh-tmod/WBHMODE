@@ -80,8 +80,8 @@ Items: {
 	}
 
 	GypsumHead: {
-		// DisplayName: Gypsum Head
-		// Tooltip: ""
+		DisplayName: 石膏头
+		Tooltip: ""
 	}
 }
 
