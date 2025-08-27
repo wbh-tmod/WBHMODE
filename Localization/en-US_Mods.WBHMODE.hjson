@@ -92,6 +92,11 @@ Items: {
 		DisplayName: Wild Halberd
 		Tooltip: ""
 	}
+
+	TerminalBall: {
+		DisplayName: Terminal Ball
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -104,6 +109,7 @@ Projectiles: {
 	TearingMaskFog.DisplayName: Tearing Mask Fog
 	GypsumHeadProjectile.DisplayName: Gypsum Head Projectile
 	WildHalberdProjectile.DisplayName: Wild Halberd Projectile
+	TerminalBallProjectile.DisplayName: Terminal Ball Projectile
 }
 
 Tiles: {
