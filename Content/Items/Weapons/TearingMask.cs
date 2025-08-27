@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.DataStructures;
+using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
 using WBHMODE.Content.Items.Materials;
@@ -46,6 +48,21 @@ namespace WBHMODE.Content.Items.Weapons
                 .AddIngredient(ModContent.ItemType<LiquidGoldBar>(), 1)
                 .Register();
 #endif
+        }
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            Vector2 plrToMouse = Main.MouseWorld - player.Center;
+            // 计算玩家到鼠标的向量弧度
+            float r = (float)Math.Atan2(plrToMouse.Y, plrToMouse.X);
+            float distance = Vector2.Distance(Main.MouseWorld, player.Center);
+            Vector2 shootVel = r.ToRotationVector2();
+            if (distance > 200f) {
+                shootVel *= 25;
+            } else {
+                shootVel *= distance / 8;
+            }
+            Projectile.NewProjectile(source, position, shootVel, type, damage, knockback);
+            return false;
         }
     }
 }

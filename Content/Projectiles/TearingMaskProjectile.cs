@@ -17,7 +17,7 @@ namespace WBHMODE.Content.Projectiles
             Projectile.width = 24;
             Projectile.height = 24;
             Projectile.friendly = true;
-            Projectile.penetrate = 1;
+            Projectile.penetrate = -1;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 60;
