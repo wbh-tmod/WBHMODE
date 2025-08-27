@@ -61,11 +61,11 @@ namespace WBHMODE.Content.Items.Placeable
             recipe.AddTile(TileID.WorkBenches); // 合成台
             recipe.Register();
 #endif
-            recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<FlowingStone>(), 1);
-            recipe.AddTile(TileID.ChlorophyteExtractinator);
-            recipe.ReplaceResult(ItemID.StoneBlock, 1);
-            recipe.Register();
+            CreateRecipe().
+                AddIngredient(ModContent.ItemType<FlowingStone>(), 1).
+                AddTile(TileID.ChlorophyteExtractinator).
+                Register().
+                ReplaceResult(ItemID.StoneBlock, 1);
         }
         //public override void ExtractinatorUse(int extractinatorBlockType, ref int resultType, ref int resultStack)
         //{ // Calls upon use of an extractinator. Below is the chance you will get ExampleOre from the extractinator.

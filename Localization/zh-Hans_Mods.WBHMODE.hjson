@@ -83,6 +83,11 @@ Items: {
 		DisplayName: 石膏头
 		Tooltip: ""
 	}
+
+	WildHalberd: {
+		DisplayName: 荒戟
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -94,6 +99,7 @@ Projectiles: {
 	// TearingMaskProjectile.DisplayName: Tearing Mask Projectile
 	// TearingMaskFog.DisplayName: Tearing Mask Fog
 	// GypsumHeadProjectile.DisplayName: Gypsum Head Projectile
+	// WildHalberdProjectile.DisplayName: Wild Halberd Projectile
 }
 
 Tiles: {

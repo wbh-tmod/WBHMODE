@@ -87,6 +87,11 @@ Items: {
 		DisplayName: Gypsum Head
 		Tooltip: ""
 	}
+
+	WildHalberd: {
+		DisplayName: Wild Halberd
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -98,6 +103,7 @@ Projectiles: {
 	TearingMaskProjectile.DisplayName: Tearing Mask Projectile
 	TearingMaskFog.DisplayName: Tearing Mask Fog
 	GypsumHeadProjectile.DisplayName: Gypsum Head Projectile
+	WildHalberdProjectile.DisplayName: Wild Halberd Projectile
 }
 
 Tiles: {
