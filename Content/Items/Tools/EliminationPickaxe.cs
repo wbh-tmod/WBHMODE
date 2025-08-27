@@ -16,14 +16,14 @@ namespace WBHMODE.Content.Items.Tools
     public class EliminationPickaxe : ModItem
     {
         public override void SetDefaults() {
-            Item.damage = 15;
+            Item.damage = 7;
             Item.DamageType = DamageClass.Melee;
             Item.width = 40;
             Item.height = 40;
             Item.useTime = 12;
             Item.useAnimation = 13;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.knockBack = 1;
+            Item.knockBack = 10;
             Item.value = Item.buyPrice(silver: 36); // Buy this item for one gold - change gold to any coin and change the value to any number <= 100
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item1;

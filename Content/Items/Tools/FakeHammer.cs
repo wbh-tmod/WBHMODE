@@ -22,7 +22,7 @@ namespace WBHMODE.Content.Items.Tools
             Item.useTime = 24;
             Item.useAnimation = 19;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.knockBack = 4;
+            Item.knockBack = 10;
             Item.value = Item.buyPrice(silver: 30);
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item1;

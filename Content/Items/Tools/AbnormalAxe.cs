@@ -17,14 +17,14 @@ namespace WBHMODE.Content.Items.Tools
     {
         public override void SetDefaults()
         {
-            Item.damage = 17;
+            Item.damage = 15;
             Item.DamageType = DamageClass.Melee;
             Item.width = 40;
             Item.height = 40;
             Item.useTime = 20;
             Item.useAnimation = 15;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.knockBack = 4;
+            Item.knockBack = 10;
             Item.value = Item.buyPrice(silver: 27);
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item1;
