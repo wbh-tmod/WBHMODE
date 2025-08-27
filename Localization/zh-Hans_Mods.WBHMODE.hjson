@@ -56,12 +56,12 @@ Items: {
 
 	AbnormalAxe: {
 		DisplayName: 不正常斧
-		// Tooltip: ""
+		Tooltip: ""
 	}
 
 	FakeHammer: {
 		DisplayName: 不真实锤
-		// Tooltip: ""
+		Tooltip: ""
 	}
 
 	ImaginationGripperFishingRod: {
@@ -91,6 +91,11 @@ Items: {
 
 	TerminalBall: {
 		DisplayName: 终止球
+		Tooltip: ""
+	}
+
+	ImaginationGun: {
+		DisplayName: 臆想枪
 		Tooltip: ""
 	}
 }

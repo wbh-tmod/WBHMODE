@@ -97,6 +97,11 @@ Items: {
 		DisplayName: Terminal Ball
 		Tooltip: ""
 	}
+
+	ImaginationGun: {
+		DisplayName: Imagination Gun
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

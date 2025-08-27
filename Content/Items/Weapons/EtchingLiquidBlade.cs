@@ -32,7 +32,7 @@ namespace WBHMODE.Content.Items.Weapons
             Item.useStyle = ItemUseStyleID.Swing; // 使用方式
             Item.knockBack = 0; // 击退
             Item.value = Item.buyPrice(silver: 27); // 售价
-            Item.rare = ItemRarityID.White; // 稀有度
+            Item.rare = ItemRarityID.Blue; // 稀有度
             Item.UseSound = SoundID.Item1; // 音效
             Item.autoReuse = true; // 自动攻击
             //Item.useTurn = true;
