@@ -42,11 +42,17 @@ namespace WBHMODE.Content.Items.Placeable
             recipe.AddTile(TileID.WorkBenches); // 合成台
             recipe.Register();
 #endif
-            recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<FlowingSandBlock>(), 1);
-            recipe.AddTile(TileID.ChlorophyteExtractinator);
-            recipe.ReplaceResult(ItemID.SandBlock, 1);
-            recipe.Register();
+            CreateRecipe()
+                .AddIngredient(ModContent.ItemType<FlowingSandBlock>(), 1)
+                .AddTile(TileID.ChlorophyteExtractinator)
+                .Register()
+                .ReplaceResult(ItemID.SandBlock, 1);
+            //Recipe recipe = CreateRecipe();
+            //recipe = CreateRecipe();
+            //recipe.AddIngredient(ModContent.ItemType<FlowingSandBlock>(), 1);
+            //recipe.AddTile(TileID.ChlorophyteExtractinator);
+            //recipe.ReplaceResult(ItemID.SandBlock, 1);
+            //recipe.Register();
         }
     }
 }

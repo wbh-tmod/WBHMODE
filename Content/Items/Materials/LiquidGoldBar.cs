@@ -38,9 +38,16 @@ namespace WBHMODE.Content.Items.Materials
         public override void AddRecipes()
         {
             CreateRecipe().
-                AddIngredient(ModContent.ItemType<LiquidGoldBar>(), 1).
-                AddTile(TileID.Furnaces).
+                AddIngredient(ModContent.ItemType<Placeable.LiquidGoldOre>(), 3).
+                AddTile(TileID.Anvils).
                 Register();
+            CreateRecipe().
+                AddIngredient(ModContent.ItemType<LiquidGoldBar>(), 12).
+                AddIngredient(ItemID.Topaz, 5).
+                AddTile(TileID.Anvils).
+                Register().
+                ReplaceResult(ItemID.Magiluminescence);
+                
 #if DEBUG
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.DirtBlock, 3); // 合成配方

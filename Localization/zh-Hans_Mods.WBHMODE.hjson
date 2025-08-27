@@ -78,6 +78,11 @@ Items: {
 		DisplayName: 滴泪面具
 		Tooltip: ""
 	}
+
+	GypsumHead: {
+		// DisplayName: Gypsum Head
+		// Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -88,6 +93,7 @@ Projectiles: {
 	// ImaginationGripperBobber.DisplayName: Imagination Gripper Bobber
 	// TearingMaskProjectile.DisplayName: Tearing Mask Projectile
 	// TearingMaskFog.DisplayName: Tearing Mask Fog
+	// GypsumHeadProjectile.DisplayName: Gypsum Head Projectile
 }
 
 Tiles: {
