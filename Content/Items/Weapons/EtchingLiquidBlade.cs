@@ -52,7 +52,7 @@ namespace WBHMODE.Content.Items.Weapons
         }
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            int value = Main.rand.Next(5);
+            int value = Main.rand.Next(2);
             if (value == 0)
             {
                 target.AddBuff(ModContent.BuffType<AcidEtchingDebuff>(), 150);
