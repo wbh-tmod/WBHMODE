@@ -98,6 +98,11 @@ Items: {
 		DisplayName: 臆想枪
 		Tooltip: ""
 	}
+
+	BlackIceBlock: {
+		DisplayName: 黑冰雪块
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

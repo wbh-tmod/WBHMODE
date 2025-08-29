@@ -102,6 +102,11 @@ Items: {
 		DisplayName: Imagination Gun
 		Tooltip: ""
 	}
+
+	BlackIceBlock: {
+		DisplayName: Black Ice Block
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
