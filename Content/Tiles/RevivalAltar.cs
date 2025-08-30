@@ -30,6 +30,8 @@ namespace WBHMODE.Content.Tiles
             TileObjectData.newTile.CoordinateHeights = [16, 18];
             TileObjectData.addTile(Type);
             AddMapEntry(new Color(200, 200, 200));
+
+            TileID.Sets.PreventsTileHammeringIfOnTopOfIt[Type] = false;
         }
         public override void NumDust(int x, int y, bool fail, ref int num)
         {
