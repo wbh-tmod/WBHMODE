@@ -108,6 +108,11 @@ Items: {
 		DisplayName: 镇定戒指
 		Tooltip: ""
 	}
+
+	TestPlaceable: {
+		// DisplayName: Test Placeable
+		// Tooltip: ""
+	}
 }
 
 Projectiles: {

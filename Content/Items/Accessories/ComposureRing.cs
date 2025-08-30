@@ -24,7 +24,7 @@ namespace WBHMODE.Content.Items.Accessories
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.AddBuff(ModContent.BuffType<ComposureRingBuff>(), -1);
+            player.AddBuff(ModContent.BuffType<ComposureRingBuff>(), 1);
         }
         public override void AddRecipes()
         {

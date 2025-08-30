@@ -112,6 +112,11 @@ Items: {
 		DisplayName: Composure Ring
 		Tooltip: ""
 	}
+
+	TestPlaceable: {
+		DisplayName: Test Placeable
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

@@ -14,8 +14,10 @@ namespace WBHMODE.Content.Buffs
     {
         public override void SetStaticDefaults()
         {
-            Main.debuff[Type] = true;
+            Main.debuff[Type] = false;
             Main.pvpBuff[Type] = false;
+            //Main.buffNoSave[Type] = true;
+            Main.buffNoTimeDisplay[Type] = true;
             BuffID.Sets.GrantImmunityWith[Type].Add(ModContent.BuffType<ComposureRingBuff>());
         }
         public override void Update(Player player, ref int buffIndex)

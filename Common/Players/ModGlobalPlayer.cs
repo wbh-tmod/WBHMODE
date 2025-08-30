@@ -26,7 +26,9 @@ namespace WBHMODE.Common.Players
         {
             if (composureRingBuff && composureRingBuffTimer == 0)
             {
+#if DEBUG
                 Player.AddBuff(BuffID.Regeneration, 120);
+#endif
                 composureRingBuffTimer = 180;
 
                 IEntitySource source = Player.GetSource_FromThis();
@@ -39,6 +41,10 @@ namespace WBHMODE.Common.Players
             if (composureRingBuffTimer > 0)
             {
                 composureRingBuffTimer--;
+            }
+            if (composureRingBuffTimer < 0)
+            {
+                composureRingBuffTimer = 0;
             }
         }
     }
