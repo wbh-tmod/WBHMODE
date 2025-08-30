@@ -107,6 +107,11 @@ Items: {
 		DisplayName: Black Ice Block
 		Tooltip: ""
 	}
+
+	ComposureRing: {
+		DisplayName: Composure Ring
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -120,6 +125,7 @@ Projectiles: {
 	GypsumHeadProjectile.DisplayName: Gypsum Head Projectile
 	WildHalberdProjectile.DisplayName: Wild Halberd Projectile
 	TerminalBallProjectile.DisplayName: Terminal Ball Projectile
+	ComposureRingProjectile.DisplayName: Composure Ring Projectile
 }
 
 Tiles: {
@@ -136,5 +142,10 @@ Buffs: {
 	AcidEtchingDebuff: {
 		DisplayName: Acid Etching Debuff
 		Description: Mods.WBHMODE.Buffs.AcidEtchingDebuff.Description
+	}
+
+	ComposureRingBuff: {
+		DisplayName: Composure Ring Buff
+		Description: Mods.WBHMODE.Buffs.ComposureRingBuff.Description
 	}
 }

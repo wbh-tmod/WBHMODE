@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace WBHMODE.Common.GlobalNPCs
 {
-    internal class ModGlobalNPC : GlobalNPC
+    public class ModGlobalNPC : GlobalNPC
     {
         public override bool InstancePerEntity => true;
         public bool acidEtchingDebuff;
