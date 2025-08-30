@@ -20,6 +20,7 @@ namespace WBHMODE.Content.Projectiles
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 30;
             Projectile.DamageType = DamageClass.Magic;
+            Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 30;
             Projectile.knockBack = 10f;
         }
