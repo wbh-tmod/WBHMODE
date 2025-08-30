@@ -16,20 +16,24 @@ namespace WBHMODE.Common.Players
     public class ModGlobalPlayer : ModPlayer
     {
         public bool composureRingBuff;
-        public int composureRingBuffTimer;
+        public bool composureRingDebuff;
+        //public int composureRingBuffTimer;
         public override void ResetEffects()
         {
             composureRingBuff = false;
-            composureRingBuffTimer = 0;
+            composureRingDebuff = false;
+            //composureRingBuffTimer = 0;
         }
         public override void PostHurt(Player.HurtInfo info)
         {
-            if (composureRingBuff && composureRingBuffTimer == 0)
+            //if (composureRingBuff && composureRingBuffTimer == 0)
+            if (composureRingBuff)
             {
 #if DEBUG
                 Player.AddBuff(BuffID.Regeneration, 120);
 #endif
-                composureRingBuffTimer = 180;
+                //composureRingBuffTimer = 180;
+                Player.AddBuff(ModContent.BuffType<ComposureRingDebuff>(), 180);
 
                 IEntitySource source = Player.GetSource_FromThis();
                 Vector2 unit = Vector2.UnitX; // 这是（1,0）
@@ -38,14 +42,14 @@ namespace WBHMODE.Common.Players
         }
         public override void PreUpdate()
         {
-            if (composureRingBuffTimer > 0)
-            {
-                composureRingBuffTimer--;
-            }
-            if (composureRingBuffTimer < 0)
-            {
-                composureRingBuffTimer = 0;
-            }
+            //if (composureRingBuffTimer > 0)
+            //{
+            //    composureRingBuffTimer--;
+            //}
+            //if (composureRingBuffTimer < 0)
+            //{
+            //    composureRingBuffTimer = 0;
+            //}
         }
     }
 }

@@ -153,4 +153,9 @@ Buffs: {
 		DisplayName: Composure Ring Buff
 		Description: Mods.WBHMODE.Buffs.ComposureRingBuff.Description
 	}
+
+	ComposureRingDebuff: {
+		DisplayName: Composure Ring Debuff
+		Description: Mods.WBHMODE.Buffs.ComposureRingDebuff.Description
+	}
 }
