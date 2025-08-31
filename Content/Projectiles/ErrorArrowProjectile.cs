@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 namespace WBHMODE.Content.Projectiles
 {
 	// This example is similar to the Wooden Arrow projectile
-	public class ErrorArrow : ModProjectile
+	public class ErrorArrowProjectile : ModProjectile
 	{
 		public override void SetStaticDefaults()
 		{
@@ -51,12 +51,12 @@ namespace WBHMODE.Content.Projectiles
                     int YSpeedDiff = ran.Next(-10, 10);
                     NewVelocity.Y = Projectile.velocity.Y + YSpeedDiff / 3;
                     NewVelocity.X = Projectile.velocity.X;
-                    int p = Projectile.NewProjectile(source, Projectile.position, NewVelocity, ModContent.ProjectileType<ErrorArrow>(), 8, 1, -1, 15f, 16f, 0f);
+                    int p = Projectile.NewProjectile(source, Projectile.position, NewVelocity, ModContent.ProjectileType<ErrorArrowProjectile>(), 8, 1, -1, 15f, 16f, 0f);
                 }
 				
             }
-				// The projectile is rotated to face the direction of travel
-				Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
+			// The projectile is rotated to face the direction of travel
+			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
 
 			// Cap downward velocity
 			if (Projectile.velocity.Y > 16f) {
