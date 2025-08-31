@@ -116,7 +116,7 @@ Items: {
 
 	ErrorArrow: {
 		DisplayName: 错箭
-		Tooltip: 既铸之错，离弦之箭
+		Tooltip: "既铸之错，离弦之箭"
 	}
 
 	WailingRock: {
