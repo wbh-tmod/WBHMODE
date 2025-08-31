@@ -22,7 +22,7 @@ namespace WBHMODE.Content.Items.Ammo
             Item.width = 14;
             Item.height = 36;
 
-            Item.damage = 8; // Keep in mind that the arrow's final damage is combined with the bow weapon damage.
+            Item.damage = 9; // Keep in mind that the arrow's final damage is combined with the bow weapon damage.
             Item.DamageType = DamageClass.Ranged;
 
             Item.maxStack = Item.CommonMaxStack;
