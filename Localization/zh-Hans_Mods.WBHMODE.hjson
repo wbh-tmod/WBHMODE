@@ -113,6 +113,16 @@ Items: {
 		// DisplayName: Test Placeable
 		// Tooltip: ""
 	}
+
+	ErrorArrow: {
+		DisplayName: 错箭
+		Tooltip: "既铸之错，离弦之箭"
+	}
+
+	WailingRock: {
+		DisplayName: 悲鸣岩石
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -127,6 +137,7 @@ Projectiles: {
 	// WildHalberdProjectile.DisplayName: Wild Halberd Projectile
 	// TerminalBallProjectile.DisplayName: Terminal Ball Projectile
 	// ComposureRingProjectile.DisplayName: Composure Ring Projectile
+	// ErrorArrow.DisplayName: Error Arrow
 }
 
 Tiles: {
