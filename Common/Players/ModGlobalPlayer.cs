@@ -11,6 +11,7 @@ using Terraria.ID;
 using Terraria.DataStructures;
 using WBHMODE.Content.Projectiles;
 using System.Collections.Specialized;
+using Terraria.WorldBuilding;
 
 namespace WBHMODE.Common.Players
 {
@@ -18,11 +19,19 @@ namespace WBHMODE.Common.Players
     {
         public bool composureRingBuff;
         public bool composureRingDebuff;
+        public int silenceShield;
+        public bool silenceArmorBuff;
+        public bool silenceArmorTimerBuff;
+        public int silenceTimer;
         //public int composureRingBuffTimer;
         public override void ResetEffects()
         {
             composureRingBuff = false;
             composureRingDebuff = false;
+            silenceShield = 0;
+            silenceArmorBuff = false;
+            silenceArmorTimerBuff = false;
+            silenceTimer = 0;
             //composureRingBuffTimer = 0;
         }
         public override void PostHurt(Player.HurtInfo info)
@@ -41,8 +50,46 @@ namespace WBHMODE.Common.Players
                 int p = Projectile.NewProjectile(source, Player.Center, -unit, ModContent.ProjectileType<ComposureRingProjectile>(), 1, 10);
             }
         }
+        public override void ModifyHurt(ref Player.HurtModifiers modifiers)
+        {
+            if (silenceArmorBuff)
+            {
+                if (!silenceArmorTimerBuff)
+                    silenceShield = 10;
+                if (silenceShield > 0)
+                    modifiers.ModifyHurtInfo += ModifyHurtInfo_Mod;
+            }
+        }
+        private void ModifyHurtInfo_Mod(ref Player.HurtInfo info)
+        {
+            // Boss Rush's damage floor is implemented as a dirty modifier
+            // TODO -- implementing this correctly would require fully reimplementing all of DR and ADR
+            if (info.Damage <= silenceShield)
+            {
+                silenceShield -= info.Damage;
+                info.Cancelled = true;
+#if DEBUG
+                Player.AddBuff(BuffID.Gills, 180);
+#endif
+            }
+            else
+            {
+                info.Damage -= silenceShield;
+                silenceShield = 0;
+#if DEBUG
+                Player.AddBuff(BuffID.ObsidianSkin, 180);
+#endif
+            }
+        }
         public override void PreUpdate()
         {
+            if (silenceArmorBuff)
+            {
+                if (silenceShield != 10 && !silenceArmorTimerBuff)
+                {
+                    Player.AddBuff(ModContent.BuffType<SilenceArmorTimerBuff>(), 600);
+                }
+            }
             //if (composureRingBuffTimer > 0)
             //{
             //    composureRingBuffTimer--;

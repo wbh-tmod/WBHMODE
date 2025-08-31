@@ -116,11 +116,26 @@ Items: {
 
 	ErrorArrow: {
 		DisplayName: 错箭
-		Tooltip: "既铸之错，离弦之箭"
+		Tooltip: 既铸之错，离弦之箭
 	}
 
 	WailingRock: {
 		DisplayName: 悲鸣岩石
+		Tooltip: ""
+	}
+
+	SilenceGreaves: {
+		DisplayName: 缄默头盔
+		Tooltip: ""
+	}
+
+	SilenceHelmet: {
+		DisplayName: 缄默鳞甲
+		Tooltip: ""
+	}
+
+	SilenceScalemail: {
+		DisplayName: 缄默护胫
 		Tooltip: ""
 	}
 }
@@ -138,6 +153,7 @@ Projectiles: {
 	// TerminalBallProjectile.DisplayName: Terminal Ball Projectile
 	// ComposureRingProjectile.DisplayName: Composure Ring Projectile
 	// ErrorArrow.DisplayName: Error Arrow
+	// ErrorArrowProjectile.DisplayName: Error Arrow Projectile
 }
 
 Tiles: {
@@ -164,5 +180,15 @@ Buffs: {
 	ComposureRingDebuff: {
 		// DisplayName: Composure Ring Debuff
 		// Description: Mods.WBHMODE.Buffs.ComposureRingDebuff.Description
+	}
+
+	SilenceArmorBuff: {
+		// DisplayName: Silence Armor Buff
+		// Description: Mods.WBHMODE.Buffs.SilenceArmorBuff.Description
+	}
+
+	SilenceArmorTimerBuff: {
+		// DisplayName: Silence Armor Timer Buff
+		// Description: Mods.WBHMODE.Buffs.SilenceArmorTimerBuff.Description
 	}
 }
