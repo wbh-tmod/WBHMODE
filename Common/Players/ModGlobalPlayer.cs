@@ -10,6 +10,7 @@ using WBHMODE.Content.Buffs;
 using Terraria.ID;
 using Terraria.DataStructures;
 using WBHMODE.Content.Projectiles;
+using System.Collections.Specialized;
 
 namespace WBHMODE.Common.Players
 {

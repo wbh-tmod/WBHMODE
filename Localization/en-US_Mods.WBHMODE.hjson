@@ -117,6 +117,16 @@ Items: {
 		DisplayName: Test Placeable
 		Tooltip: ""
 	}
+
+	ErrorArrow: {
+		DisplayName: Error Arrow
+		Tooltip: ""
+	}
+
+	WailingRock: {
+		DisplayName: Wailing Rock
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -131,6 +141,7 @@ Projectiles: {
 	WildHalberdProjectile.DisplayName: Wild Halberd Projectile
 	TerminalBallProjectile.DisplayName: Terminal Ball Projectile
 	ComposureRingProjectile.DisplayName: Composure Ring Projectile
+	ErrorArrow.DisplayName: Error Arrow
 }
 
 Tiles: {
