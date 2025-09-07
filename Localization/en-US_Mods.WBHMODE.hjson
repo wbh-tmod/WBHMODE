@@ -195,4 +195,9 @@ Buffs: {
 		DisplayName: Silence Armor Timer Buff
 		Description: Mods.WBHMODE.Buffs.SilenceArmorTimerBuff.Description
 	}
+
+	HalfDeclineDebuff: {
+		DisplayName: Half Decline Debuff
+		Description: Mods.WBHMODE.Buffs.HalfDeclineDebuff.Description
+	}
 }
