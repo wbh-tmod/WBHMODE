@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -22,6 +23,10 @@ namespace WBHMODE.Common.GlobalNPCs
             acidEtchingDebuff = false;
             halfDeclineDebuff = false;
             halfDeclineFlag = 0;
+            //lifeMax2 = npc.lifeMax;
+        }
+        public override void OnSpawn(NPC npc, IEntitySource source)
+        {
             lifeMax2 = npc.lifeMax;
         }
         public override void UpdateLifeRegen(NPC npc, ref int damage)
