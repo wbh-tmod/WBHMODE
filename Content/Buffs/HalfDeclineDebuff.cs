@@ -21,6 +21,7 @@ namespace WBHMODE.Content.Buffs
         }
         public override void Update(NPC npc, ref int buffIndex)
         {
+            //Main.NewText("Last Time: " + npc.buffTime[buffIndex]);
             //ModGlobalNPC modGlobalNPC = npc.GetGlobalNPC<ModGlobalNPC>();
             npc.GetGlobalNPC<ModGlobalNPC>().halfDeclineDebuff = true;
             //ref float AI_State = ref npc.ai[0];
@@ -41,13 +42,14 @@ namespace WBHMODE.Content.Buffs
             //if (npc.GetGlobalNPC<ModGlobalNPC>().halfDeclineFlag != 0) {
             //    npc.ai[0] = 1f;
             //}
-            if (npc.ai[0] == 1f) {
-                float percent = npc.life / (npc.lifeMax * 1.0f);
-                npc.lifeMax = npc.GetGlobalNPC<ModGlobalNPC>().lifeMax2;
-                npc.life = (int)(percent * npc.lifeMax);
-                //npc.life = npc.lifeMax;
-                npc.ai[1] = 0;
-                npc.ai[0] = 0;
+            if (npc.buffTime[buffIndex] == 0)
+            {
+                if (npc.lifeMax != npc.GetGlobalNPC<ModGlobalNPC>().lifeMax2)
+                {
+                    float percent = npc.life / (npc.lifeMax * 1.0f);
+                    npc.lifeMax = npc.GetGlobalNPC<ModGlobalNPC>().lifeMax2;
+                    npc.life = (int)(percent * npc.lifeMax);
+                }
             }
         }
     }

@@ -29,7 +29,7 @@ namespace WBHMODE.Common.GlobalNPCs
         public override void OnSpawn(NPC npc, IEntitySource source)
         {
             lifeMax2 = npc.life;
-            //Main.NewText("MaxLife: " + lifeMax2, new Color(0, 255, 255));
+            //Main.NewText("CurLife: " + npc.life + " | MaxLife: " + npc.lifeMax, new Color(0, 255, 255));
         }
         public override void UpdateLifeRegen(NPC npc, ref int damage)
         {
@@ -46,8 +46,6 @@ namespace WBHMODE.Common.GlobalNPCs
                 float percent = npc.life / (npc.lifeMax * 1.0f);
                 npc.lifeMax = npc.GetGlobalNPC<ModGlobalNPC>().lifeMax2;
                 npc.life = (int)(percent * npc.lifeMax);
-                //npc.life = npc.lifeMax;
-                npc.ai[1] = 0;
             }
         }
     }
