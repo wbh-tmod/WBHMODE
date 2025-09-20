@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -17,17 +18,18 @@ namespace WBHMODE.Common.GlobalNPCs
         public override bool InstancePerEntity => true;
         public bool acidEtchingDebuff;
         public bool halfDeclineDebuff;
-        public int halfDeclineFlag;
+        //public int halfDeclineFlag;
         public int lifeMax2; // original lifeMax
         public override void ResetEffects(NPC npc) {
             acidEtchingDebuff = false;
             halfDeclineDebuff = false;
-            halfDeclineFlag = 0;
+            //halfDeclineFlag = 0;
             //lifeMax2 = npc.lifeMax;
         }
         public override void OnSpawn(NPC npc, IEntitySource source)
         {
-            lifeMax2 = npc.lifeMax;
+            lifeMax2 = npc.life;
+            //Main.NewText("MaxLife: " + lifeMax2, new Color(0, 255, 255));
         }
         public override void UpdateLifeRegen(NPC npc, ref int damage)
         {
@@ -39,7 +41,14 @@ namespace WBHMODE.Common.GlobalNPCs
         }
         public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
         {
-            npc.ai[0] = 1f;
+            if (npc.lifeMax != npc.GetGlobalNPC<ModGlobalNPC>().lifeMax2)
+            {
+                float percent = npc.life / (npc.lifeMax * 1.0f);
+                npc.lifeMax = npc.GetGlobalNPC<ModGlobalNPC>().lifeMax2;
+                npc.life = (int)(percent * npc.lifeMax);
+                //npc.life = npc.lifeMax;
+                npc.ai[1] = 0;
+            }
         }
     }
 }
