@@ -142,6 +142,11 @@ Items: {
 		DisplayName: Silence Scalemail
 		Tooltip: ""
 	}
+
+	Neuro: {
+		DisplayName: Neuro
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

@@ -138,6 +138,11 @@ Items: {
 		DisplayName: 缄默护胫
 		Tooltip: ""
 	}
+
+	Neuro: {
+		DisplayName: 神经
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
