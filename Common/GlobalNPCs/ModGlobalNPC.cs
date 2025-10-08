@@ -44,7 +44,8 @@ namespace WBHMODE.Common.GlobalNPCs
             if (npc.lifeMax != npc.GetGlobalNPC<ModGlobalNPC>().lifeMax2)
             {
                 float percent = npc.life / (npc.lifeMax * 1.0f);
-                npc.lifeMax = npc.GetGlobalNPC<ModGlobalNPC>().lifeMax2;
+                int newLifeMax = npc.lifeMax + npc.GetGlobalNPC<ModGlobalNPC>().lifeMax2 / 10;
+                npc.lifeMax = Math.Min(newLifeMax, npc.GetGlobalNPC<ModGlobalNPC>().lifeMax2);
                 npc.life = (int)(percent * npc.lifeMax);
             }
         }
