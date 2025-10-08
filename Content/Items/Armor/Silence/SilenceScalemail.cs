@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using WBHMODE.Content.Items.Materials;
 
 namespace WBHMODE.Content.Items.Armor.Silence
 {
@@ -33,6 +34,11 @@ namespace WBHMODE.Content.Items.Armor.Silence
                 AddIngredient(ItemID.DirtBlock, 1).
                 Register();
 #endif
+            CreateRecipe().
+                AddIngredient(ModContent.ItemType<LiquidGoldBar>(), 25).
+                AddIngredient(ModContent.ItemType<FlowingStonePhase>(), 10).
+                AddTile(TileID.Anvils).
+                Register();
         }
     }
 }
