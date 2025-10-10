@@ -143,6 +143,11 @@ Items: {
 		DisplayName: 神经
 		Tooltip: ""
 	}
+
+	HalfDeclineArrow: {
+		DisplayName: 半衰箭
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -159,6 +164,7 @@ Projectiles: {
 	// ComposureRingProjectile.DisplayName: Composure Ring Projectile
 	// ErrorArrow.DisplayName: Error Arrow
 	// ErrorArrowProjectile.DisplayName: Error Arrow Projectile
+	// HalfDeclineArrowProjectile.DisplayName: Half Decline Arrow Projectile
 }
 
 Tiles: {

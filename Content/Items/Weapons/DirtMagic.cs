@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
+using WBHMODE.Content.Buffs;
 using WBHMODE.Content.Projectiles;
 
 namespace WBHMODE.Content.Items.Weapons
@@ -34,6 +35,11 @@ namespace WBHMODE.Content.Items.Weapons
             {
                 mult *= 0.5f; // Half the mana cost when at low health. Make sure to use multiplication with the mult parameter.
             }
+        }
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            //target.AddBuff(ModContent.BuffType<AcidEtchingDebuff>(), 600);
+            target.AddBuff(ModContent.BuffType<HalfDeclineDebuff>(), 600);
         }
     }
 

@@ -147,6 +147,11 @@ Items: {
 		DisplayName: Neuro
 		Tooltip: ""
 	}
+
+	HalfDeclineArrow: {
+		DisplayName: Half Decline Arrow
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -163,6 +168,7 @@ Projectiles: {
 	ComposureRingProjectile.DisplayName: Composure Ring Projectile
 	ErrorArrow.DisplayName: Error Arrow
 	ErrorArrowProjectile.DisplayName: Error Arrow Projectile
+	HalfDeclineArrowProjectile.DisplayName: Half Decline Arrow Projectile
 }
 
 Tiles: {
