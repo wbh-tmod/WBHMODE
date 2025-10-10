@@ -152,6 +152,11 @@ Items: {
 		DisplayName: Half Decline Arrow
 		Tooltip: ""
 	}
+
+	HardenedFlowingSandBlock: {
+		DisplayName: Hardened Flowing Sand Block
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

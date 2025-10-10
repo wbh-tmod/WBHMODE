@@ -148,6 +148,11 @@ Items: {
 		DisplayName: 半衰箭
 		Tooltip: ""
 	}
+
+	HardenedFlowingSandBlock: {
+		DisplayName: 硬化流动沙块
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
