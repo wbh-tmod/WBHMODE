@@ -153,6 +153,16 @@ Items: {
 		DisplayName: 硬化流动沙块
 		Tooltip: ""
 	}
+
+	SharedThoughts: {
+		// DisplayName: Shared Thoughts
+		// Tooltip: ""
+	}
+
+	VoidPowder: {
+		// DisplayName: Void Powder
+		// Tooltip: ""
+	}
 }
 
 Projectiles: {
