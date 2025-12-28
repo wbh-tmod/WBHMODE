@@ -33,7 +33,7 @@ namespace WBHMODE.Common.Systems
             if (MenuLoader.CurrentMenu is not ErodedLandModMenu)
                 return;
 
-            if (!uiItem.Data.TryGetHeaderData(this, out var data) || !data.GetBool("ExampleModExists"))
+            if (!uiItem.Data.TryGetHeaderData(this, out var data) || !data.GetBool("ErodedLandModExists"))
                 return;
 
             var dims = uiItem.GetInnerDimensions();
@@ -59,7 +59,7 @@ namespace WBHMODE.Common.Systems
                 return;
             }
 
-            if (Main.ActiveWorldFileData.TryGetModVersionGeneratedWith("ExampleMod", out Version modVersion))
+            if (Main.ActiveWorldFileData.TryGetModVersionGeneratedWith("WBHMODE", out Version modVersion))
             {
                 if (modVersion < new Version(1, 0))
                 {
