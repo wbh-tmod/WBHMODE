@@ -54,3 +54,7 @@
 流动沙块 FlowingSand<br>
 流动沙块弹幕 FlowingSandBallFallingProjectile<br>
 液金矿 LiquidGoldOre<br>
+
+## BUGS
+
+半衰Debuff作用于多体节怪物只能作用于头部
