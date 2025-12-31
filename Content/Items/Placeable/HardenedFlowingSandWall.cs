@@ -46,10 +46,11 @@ namespace WBHMODE.Content.Items.Placeable
             recipe.AddTile(TileID.WorkBenches); // 合成台
             recipe.Register();
 #endif
-            // 工作台 硬化流动沙块1:4硬化流动沙墙
+            // 墓地工作台 硬化流动沙块1:4硬化流动沙墙
             CreateRecipe(4).
                 AddIngredient(ModContent.ItemType<HardenedFlowingSandBlock>(), 1).
                 AddTile(TileID.WorkBenches).
+                AddCondition(Condition.InGraveyard).
                 Register();
         }
         //public override void ExtractinatorUse(int extractinatorBlockType, ref int resultType, ref int resultStack)

@@ -50,6 +50,7 @@ namespace WBHMODE.Content.Items.Placeable
             CreateRecipe(4).
                 AddIngredient(ModContent.ItemType<FlowingSandstoneBlock>(), 1).
                 AddTile(TileID.WorkBenches).
+                AddCondition(Condition.InGraveyard).
                 Register();
         }
         //public override void ExtractinatorUse(int extractinatorBlockType, ref int resultType, ref int resultStack)
