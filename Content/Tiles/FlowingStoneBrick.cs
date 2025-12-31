@@ -5,29 +5,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
 namespace WBHMODE.Content.Tiles
 {
-    public class FlowingStone : ModTile
+    public class FlowingStoneBrick : ModTile
     {
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = true;
-            AddMapEntry(new Color(200, 200, 200));
-        }
+            Main.tileMergeDirt[Type] = true;
 
-        public override void NumDust(int i, int j, bool fail, ref int num)
+
+            AddMapEntry(new Color(220, 220, 220));
+        }
+        public override bool HasWalkDust()
         {
-            num = fail ? 1 : 3;
+            return Main.rand.NextBool(3);
         }
-
-        //public override void ChangeWaterfallStyle(ref int style)
-        //{
-        //    style = ModContent.GetInstance<ExampleWaterfallStyle>().Slot;
-        //}
+        public override void WalkDust(ref int dustType, ref bool makeDust, ref Color color)
+        {
+            dustType = DustID.Stone;
+        }
     }
 }
