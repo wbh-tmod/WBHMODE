@@ -167,6 +167,36 @@ Items: {
 		DisplayName: Void Powder
 		Tooltip: ""
 	}
+
+	FlowingSandstoneBlock: {
+		DisplayName: Flowing Sandstone Block
+		Tooltip: ""
+	}
+
+	ErodingKey: {
+		DisplayName: Eroding Key
+		Tooltip: ""
+	}
+
+	FlowingStoneBrick: {
+		DisplayName: Flowing Stone Brick
+		Tooltip: ""
+	}
+
+	FlowingStoneBrickWall: {
+		DisplayName: Flowing Stone Brick Wall
+		Tooltip: ""
+	}
+
+	FlowingSandstoneWall: {
+		DisplayName: Flowing Sandstone Wall
+		Tooltip: ""
+	}
+
+	HardenedFlowingSandWall: {
+		DisplayName: Hardened Flowing Sand Wall
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -189,6 +219,7 @@ Projectiles: {
 Tiles: {
 	LiquidGoldOre.MapEntry: Liquid Gold Ore
 	VoidMushroom.MapEntry: Void Mushroom
+	LiquidGoldBarTile.MapEntry: Liquid Gold Bar Tile
 }
 
 WorldGen: {

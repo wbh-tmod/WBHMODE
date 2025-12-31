@@ -155,13 +155,43 @@ Items: {
 	}
 
 	SharedThoughts: {
-		// DisplayName: Shared Thoughts
-		// Tooltip: ""
+		DisplayName: 共享思维
+		Tooltip: 召唤墙中眼
 	}
 
 	VoidPowder: {
-		// DisplayName: Void Powder
-		// Tooltip: ""
+		DisplayName: 虚粉
+		Tooltip: ""
+	}
+
+	FlowingSandstoneBlock: {
+		DisplayName: 流动沙岩块
+		Tooltip: ""
+	}
+
+	ErodingKey: {
+		DisplayName: 消蚀钥匙
+		Tooltip: ""
+	}
+
+	FlowingStoneBrick: {
+		DisplayName: 流动石砖
+		Tooltip: ""
+	}
+
+	FlowingStoneBrickWall: {
+		DisplayName: 流动石砖墙
+		Tooltip: ""
+	}
+
+	FlowingSandstoneWall: {
+		DisplayName: 流动沙岩墙
+		Tooltip: ""
+	}
+
+	HardenedFlowingSandWall: {
+		DisplayName: 硬化流动沙墙
+		Tooltip: ""
 	}
 }
 
@@ -185,6 +215,7 @@ Projectiles: {
 Tiles: {
 	LiquidGoldOre.MapEntry: 液金矿
 	VoidMushroom.MapEntry: 虚蘑菇
+	LiquidGoldBarTile.MapEntry: 液金锭
 }
 
 WorldGen: {
