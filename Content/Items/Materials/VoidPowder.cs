@@ -37,5 +37,16 @@ namespace WBHMODE.Content.Items.Materials
         {
             return true;
         }
+        public override void AddRecipes()
+        {
+#if DEBUG
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ItemID.DirtBlock, 1); // 合成配方
+            recipe.AddTile(TileID.WorkBenches); // 合成台
+            recipe.ReplaceResult(ModContent.ItemType<Neuro>(), 100);
+            recipe.Register();
+#endif
+            return;
+        }
     }
 }

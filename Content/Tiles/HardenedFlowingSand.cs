@@ -17,17 +17,18 @@ namespace WBHMODE.Content.Tiles
         {
             Main.tileSolid[Type] = true;
             Main.tileBrick[Type] = true;
-            Main.tileMergeDirt[Type] = false;
+            Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
 
             // Sand specific properties
             Main.tileSand[Type] = true;
             TileID.Sets.Conversion.Sand[Type] = true; // Allows Clentaminator solutions to convert this tile to their respective Sand tiles.
             TileID.Sets.ForAdvancedCollision.ForSandshark[Type] = true; // Allows Sandshark enemies to "swim" in this sand.
+            TileID.Sets.CanBeDugByShovel[Type] = true;
             TileID.Sets.Suffocate[Type] = true;
             
             TileID.Sets.CanBeClearedDuringOreRunner[Type] = true;
-            TileID.Sets.GeneralPlacementTiles[Type] = true;
+            TileID.Sets.GeneralPlacementTiles[Type] = false;
             TileID.Sets.ChecksForMerge[Type] = true;
 
             MineResist = 0.5f; // Sand tile typically require half as many hits to mine.

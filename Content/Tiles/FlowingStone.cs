@@ -1,13 +1,11 @@
-﻿using Microsoft.Xna.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
+using Microsoft.Xna.Framework;
 
 namespace WBHMODE.Content.Tiles
 {
@@ -16,7 +14,11 @@ namespace WBHMODE.Content.Tiles
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
+            Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
+
+            //DustType = ModContent.DustType<Sparkle>();
+
             AddMapEntry(new Color(200, 200, 200));
         }
 

@@ -18,6 +18,9 @@ namespace WBHMODE.Content.Items.Placeable
         public override void SetDefaults()
         {
             Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.HardenedFlowingSand>());
+            Item.width = 12;
+            Item.height = 12;
+            Item.ammo = AmmoID.Sand;
         }
         public override void AddRecipes()
         {
@@ -39,11 +42,6 @@ namespace WBHMODE.Content.Items.Placeable
                 AddIngredient(ItemID.Torch, 3).
                 Register().
                 ReplaceResult(ItemID.DesertTorch);
-            // 工作台 硬化流动沙墙4:1硬化流动沙块
-            CreateRecipe(1).
-                AddIngredient(ModContent.ItemType<HardenedFlowingSandWall>(), 4).
-                AddTile(TileID.WorkBenches).
-                Register();
         }
     }
 }
