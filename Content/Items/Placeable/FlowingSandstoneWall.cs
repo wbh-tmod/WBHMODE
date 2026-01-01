@@ -46,7 +46,7 @@ namespace WBHMODE.Content.Items.Placeable
             recipe.AddTile(TileID.WorkBenches); // 合成台
             recipe.Register();
 #endif
-            // 工作台 流动沙岩块1:4流动沙岩墙
+            // 墓地工作台 流动沙岩块1:4流动沙岩墙
             CreateRecipe(4).
                 AddIngredient(ModContent.ItemType<FlowingSandstoneBlock>(), 1).
                 AddTile(TileID.WorkBenches).

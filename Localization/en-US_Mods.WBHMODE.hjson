@@ -197,6 +197,11 @@ Items: {
 		DisplayName: Hardened Flowing Sand Wall
 		Tooltip: ""
 	}
+
+	FlowingStoneWall: {
+		DisplayName: Flowing Stone Wall
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

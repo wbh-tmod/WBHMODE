@@ -193,6 +193,11 @@ Items: {
 		DisplayName: 硬化流动沙墙
 		Tooltip: ""
 	}
+
+	FlowingStoneWall: {
+		DisplayName: 流动石墙
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

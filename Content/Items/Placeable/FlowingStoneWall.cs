@@ -12,13 +12,13 @@ using Terraria.ModLoader;
 
 namespace WBHMODE.Content.Items.Placeable
 {
-    public class FlowingStone : ModItem
+    public class FlowingStoneWall: ModItem
     {
         public override void SetStaticDefaults()
         {
-            Item.ResearchUnlockCount = 100;
+            Item.ResearchUnlockCount = 400;
             ItemID.Sets.ExtractinatorMode[Item.type] = Item.type;
-
+            
             // Mods can be translated to any of the languages tModLoader supports. See https://github.com/tModLoader/tModLoader/wiki/Localization
             // Translations go in localization files (.hjson files), but these are listed here as an example to help modders become aware of the possibility that users might want to use your mod in other lauguages:
             // English: "Example Block", "This is a modded tile."
@@ -33,9 +33,8 @@ namespace WBHMODE.Content.Items.Placeable
         }
         public override void SetDefaults()
         {
-            Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.FlowingStone>());
-            Item.width = 12;
-            Item.height = 12;
+            Item.DefaultToPlaceableWall(ModContent.WallType<Walls.FlowingStoneWall>());
+      
         }
 
         // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
@@ -47,15 +46,11 @@ namespace WBHMODE.Content.Items.Placeable
             recipe.AddTile(TileID.WorkBenches); // 合成台
             recipe.Register();
 #endif
-            CreateRecipe().
+            // 墓地工作台 流动石块1:4流动石墙
+            CreateRecipe(4).
                 AddIngredient(ModContent.ItemType<FlowingStone>(), 1).
-                AddTile(TileID.ChlorophyteExtractinator).
-                Register().
-                ReplaceResult(ItemID.StoneBlock, 1);
-            // 工作台 流动石墙4:1流动石块
-            CreateRecipe().
-                AddIngredient(ModContent.ItemType<FlowingStoneWall>(), 4).
                 AddTile(TileID.WorkBenches).
+                AddCondition(Condition.InGraveyard).
                 Register();
         }
         //public override void ExtractinatorUse(int extractinatorBlockType, ref int resultType, ref int resultStack)
