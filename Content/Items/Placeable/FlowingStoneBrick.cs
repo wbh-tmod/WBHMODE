@@ -12,30 +12,15 @@ using Terraria.ModLoader;
 
 namespace WBHMODE.Content.Items.Placeable
 {
-    public class FlowingStone : ModItem
+    public class FlowingStoneBrick : ModItem
     {
         public override void SetStaticDefaults()
         {
             Item.ResearchUnlockCount = 100;
-            ItemID.Sets.ExtractinatorMode[Item.type] = Item.type;
-
-            // Mods can be translated to any of the languages tModLoader supports. See https://github.com/tModLoader/tModLoader/wiki/Localization
-            // Translations go in localization files (.hjson files), but these are listed here as an example to help modders become aware of the possibility that users might want to use your mod in other lauguages:
-            // English: "Example Block", "This is a modded tile."
-            // German: "Beispielblock", "Dies ist ein modded Block"
-            // Italian: "Blocco di esempio", "Questo è un blocco moddato"
-            // French: "Bloc d'exemple", "C'est un bloc modgé"
-            // Spanish: "Bloque de ejemplo", "Este es un bloque modded"
-            // Russian: "Блок примера", "Это модифицированный блок"
-            // Chinese: "例子块", "这是一个修改块"
-            // Portuguese: "Bloco de exemplo", "Este é um bloco modded"
-            // Polish: "Przykładowy blok", "Jest to modded blok"
         }
         public override void SetDefaults()
         {
-            Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.FlowingStone>());
-            Item.width = 12;
-            Item.height = 12;
+            Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.FlowingStoneBrick>());
         }
 
         // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
@@ -47,14 +32,14 @@ namespace WBHMODE.Content.Items.Placeable
             recipe.AddTile(TileID.WorkBenches); // 合成台
             recipe.Register();
 #endif
+            // 熔炉 流动石块2:1流动石砖
             CreateRecipe().
-                AddIngredient(ModContent.ItemType<FlowingStone>(), 1).
-                AddTile(TileID.ChlorophyteExtractinator).
-                Register().
-                ReplaceResult(ItemID.StoneBlock, 1);
-            // 工作台 流动石墙4:1流动石块
+                AddIngredient(ModContent.ItemType<FlowingStone>(), 2).
+                AddTile(TileID.Furnaces).
+                Register();
+            // 工作台 流动石墙4:1流动石砖
             CreateRecipe().
-                AddIngredient(ModContent.ItemType<FlowingStoneWall>(), 4).
+                AddIngredient(ModContent.ItemType<FlowingStoneBrickWall>(), 4).
                 AddTile(TileID.WorkBenches).
                 Register();
         }
