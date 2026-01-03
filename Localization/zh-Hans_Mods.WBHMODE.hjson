@@ -279,3 +279,10 @@ Buffs: {
 		// Description: Mods.WBHMODE.Buffs.HalfDeclineDebuff.Description
 	}
 }
+
+Biomes: {
+	ErodedLandBiome: {
+		// DisplayName: Eroded Land Biome
+		// TownNPCDialogueName: the Eroded Land Biome
+	}
+}
