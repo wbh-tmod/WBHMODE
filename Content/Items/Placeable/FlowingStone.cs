@@ -57,6 +57,23 @@ namespace WBHMODE.Content.Items.Placeable
                 AddIngredient(ModContent.ItemType<FlowingStoneWall>(), 4).
                 AddTile(TileID.WorkBenches).
                 Register();
+            // 工作台 四种背景墙4:1流动石块
+            CreateRecipe().
+                AddIngredient(ModContent.ItemType<ErodingHandsWall>(), 4).
+                AddTile(TileID.WorkBenches).
+                Register();
+            CreateRecipe().
+                AddIngredient(ModContent.ItemType<ErodingBonesWall>(), 4).
+                AddTile(TileID.WorkBenches).
+                Register();
+            CreateRecipe().
+                AddIngredient(ModContent.ItemType<ErodingGeometryWall>(), 4).
+                AddTile(TileID.WorkBenches).
+                Register();
+            CreateRecipe().
+                AddIngredient(ModContent.ItemType<ErodingStaringWall>(), 4).
+                AddTile(TileID.WorkBenches).
+                Register();
         }
         //public override void ExtractinatorUse(int extractinatorBlockType, ref int resultType, ref int resultStack)
         //{ // Calls upon use of an extractinator. Below is the chance you will get ExampleOre from the extractinator.
