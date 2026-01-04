@@ -17,7 +17,7 @@ namespace WBHMODE.Content.Tiles
         public override void SetStaticDefaults() {
             Main.tileSolid[Type] = true;
             Main.tileBrick[Type] = true;
-            Main.tileMergeDirt[Type] = true;
+            Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
             TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Ice"]);
 

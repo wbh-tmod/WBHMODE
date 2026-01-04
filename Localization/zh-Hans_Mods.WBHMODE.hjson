@@ -218,6 +218,11 @@ Items: {
 		DisplayName: 消蚀注视墙
 		Tooltip: ""
 	}
+
+	ErodingTorch: {
+		DisplayName: 消蚀火把
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

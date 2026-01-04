@@ -222,6 +222,11 @@ Items: {
 		DisplayName: Eroding Staring Wall
 		Tooltip: ""
 	}
+
+	ErodingTorch: {
+		DisplayName: Eroding Torch
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
