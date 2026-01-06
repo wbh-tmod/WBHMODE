@@ -202,6 +202,31 @@ Items: {
 		DisplayName: Flowing Stone Wall
 		Tooltip: ""
 	}
+
+	ErodingBonesWall: {
+		DisplayName: Eroding Bones Wall
+		Tooltip: ""
+	}
+
+	ErodingGeometryWall: {
+		DisplayName: Eroding Geometry Wall
+		Tooltip: ""
+	}
+
+	ErodingHandsWall: {
+		DisplayName: Eroding Hands Wall
+		Tooltip: ""
+	}
+
+	ErodingStaringWall: {
+		DisplayName: Eroding Staring Wall
+		Tooltip: ""
+	}
+
+	ErodingTorch: {
+		DisplayName: Eroding Torch
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

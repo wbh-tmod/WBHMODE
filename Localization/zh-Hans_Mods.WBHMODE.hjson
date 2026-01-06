@@ -198,6 +198,31 @@ Items: {
 		DisplayName: 流动石墙
 		Tooltip: ""
 	}
+
+	ErodingBonesWall: {
+		DisplayName: 消蚀栖骨墙
+		Tooltip: ""
+	}
+
+	ErodingGeometryWall: {
+		DisplayName: 消蚀几何墙
+		Tooltip: ""
+	}
+
+	ErodingHandsWall: {
+		DisplayName: 消蚀爬手墙
+		Tooltip: ""
+	}
+
+	ErodingStaringWall: {
+		DisplayName: 消蚀注视墙
+		Tooltip: ""
+	}
+
+	ErodingTorch: {
+		DisplayName: 消蚀火把
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
