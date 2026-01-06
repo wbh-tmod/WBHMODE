@@ -10,6 +10,9 @@
 	<ItemGroup>
 	  <AdditionalFiles Remove="Localization\zh-Hans_Mods.WBHMODE.hjson" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Assets\Textures\Backgrounds\" />
+	</ItemGroup>
 
 	<!-- References -->
 
