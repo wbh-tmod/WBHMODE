@@ -10,7 +10,7 @@ namespace WBHMODE.Common
 {
     public static class ErodedLandCondition
     {
-        public static Condition InErodedLandBiome = new Condition("Mods.WBHMODE.Conditions.InErodedLandBiome", () => Main.LocalPlayer.InModBiome<ErodedLandBiome>() /*|| Main.LocalPlayer.InModBiome<ErodedLandUndergroundBiome>()*/);
+        public static Condition InErodedLandBiome = new Condition("Mods.WBHMODE.Conditions.InErodedLandBiome", () => Main.LocalPlayer.InModBiome<ErodedLandSurfaceBiome>() /*|| Main.LocalPlayer.InModBiome<ErodedLandUndergroundBiome>()*/);
 
     }
 }
