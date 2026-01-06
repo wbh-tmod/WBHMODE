@@ -18,7 +18,7 @@ namespace WBHMODE.Common.Systems
 
         /*
         计数玩家附近的邪恶群系方块数
-        在Contents/Biomes/ErodedLandBiome.cs/IsBiomeActive中调用 
+        在Content/Biomes/ErodedLandBiome.cs/IsBiomeActive中调用 
         计入方块：流动石块、流动沙块、硬化流动沙块、流动沙岩块、黑冰雪块
         尚未添加：多刺灌木、草、丛林草
         可选添加：腐化植物（猩红不计入、腐化计入）

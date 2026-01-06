@@ -34,7 +34,7 @@ Items: {
 	}
 
 	EtchingLiquidBlade: {
-		DisplayName: Etching Liquid Swing Sword
+		DisplayName: Past Gone
 		Tooltip: ""
 	}
 
@@ -149,7 +149,7 @@ Items: {
 	}
 
 	HalfDeclineArrow: {
-		DisplayName: Half Decline Arrow
+		DisplayName: Half-life Arrow
 		Tooltip: ""
 	}
 
