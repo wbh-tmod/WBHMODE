@@ -286,8 +286,8 @@ Buffs: {
 }
 
 Biomes: {
-	ErodedLandBiome: {
-		// DisplayName: Eroded Land Biome
-		// TownNPCDialogueName: the Eroded Land Biome
+	ErodedLandSurfaceBiome: {
+		// DisplayName: Eroded Land Surface Biome
+		// TownNPCDialogueName: the Eroded Land Surface Biome
 	}
 }
