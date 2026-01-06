@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace WBHMODE.Content.Biomes
+namespace WBHMODE.Content.Dusts
 {
     public class ErodedLandSolutionDust : ModDust
     {
