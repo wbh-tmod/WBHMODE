@@ -14,6 +14,7 @@ namespace WBHMODE.Content.Items.Placeable
         public override void SetStaticDefaults()
         {
             Item.ResearchUnlockCount = 100;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<FlowingSandBlock>(); // Shimmer transform
         }
         public override void SetDefaults()
         {
