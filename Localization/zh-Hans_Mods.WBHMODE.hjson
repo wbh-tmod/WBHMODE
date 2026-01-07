@@ -223,6 +223,11 @@ Items: {
 		DisplayName: 消蚀火把
 		Tooltip: ""
 	}
+
+	ErodingCampfire: {
+		// DisplayName: Eroding Campfire
+		// Tooltip: ""
+	}
 }
 
 Projectiles: {

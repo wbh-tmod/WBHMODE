@@ -227,6 +227,11 @@ Items: {
 		DisplayName: Eroding Torch
 		Tooltip: ""
 	}
+
+	ErodingCampfire: {
+		DisplayName: Eroding Campfire
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
