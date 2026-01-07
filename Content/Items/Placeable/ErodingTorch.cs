@@ -43,7 +43,7 @@ namespace WBHMODE.Content.Items.Placeable
             // Randomly spawn sparkles when the torch is held. Bigger chance to spawn them when swinging the torch.
             if (Main.rand.NextBool(player.itemAnimation > 0 ? 7 : 30))
             {
-                Dust dust = Dust.NewDustDirect(new Vector2(player.itemLocation.X + (player.direction == -1 ? -16f : 6f), player.itemLocation.Y - 14f * player.gravDir), 4, 4, ModContent.DustType<Sparkle>(), 0f, 0f, 100);
+                Dust dust = Dust.NewDustDirect(new Vector2(player.itemLocation.X + (player.direction == -1 ? -16f : 6f), player.itemLocation.Y - 14f * player.gravDir), 4, 4, DustID.Ash, 0f, 0f, 100);
                 if (!Main.rand.NextBool(3))
                 {
                     dust.noGravity = true;

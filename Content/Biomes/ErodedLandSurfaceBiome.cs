@@ -6,16 +6,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.Graphics.Capture;
 using Terraria.ModLoader;
 using WBHMODE.Common.Systems;
+using WBHMODE.Content.Items.Placeable;
 
 namespace WBHMODE.Content.Biomes
 {
     public class ErodedLandSurfaceBiome : ModBiome
     {
+        // 设置该生物群落的水风格（自定义的ErodedLandWaterStyle）
         public override ModWaterStyle WaterStyle => ModContent.GetInstance<ErodedLandWaterStyle>(); // Sets a water style for when inside this biome
+        // 设置该生物群落的地表背景风格
         public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<ErodedLandSurfaceBackgroundStyle>();
+        // 设置截图时的瓷砖颜色风格（这里用了血腥之地的风格）
+        public override CaptureBiome.TileColorStyle TileColorStyle => CaptureBiome.TileColorStyle.Crimson;
+        // 设置该生物群落的背景音乐（加载模组内Assets/Music路径下的ErodedLandMusic）
         public override int Music => MusicLoader.GetMusicSlot(Mod, "Assets/Music/ErodedLandMusic");
+
+        public override int BiomeTorchItemType => ModContent.ItemType<ErodingTorch>();
+        //public override int BiomeCampfireItemType => ModContent.ItemType<ErodingCampfire>();
 
         public override bool IsBiomeActive(Player player)
         {
