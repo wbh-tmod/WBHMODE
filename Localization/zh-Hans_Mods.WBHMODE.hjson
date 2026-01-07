@@ -224,6 +224,12 @@ Items: {
 		Tooltip: ""
 	}
 
+	DecayingMaterial: {
+		DisplayName: 半衰质
+		Tooltip: ""
+	}
+}
+
 	ErodingCampfire: {
 		// DisplayName: Eroding Campfire
 		// Tooltip: ""

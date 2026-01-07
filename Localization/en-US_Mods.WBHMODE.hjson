@@ -228,6 +228,12 @@ Items: {
 		Tooltip: ""
 	}
 
+	DecayingMaterial: {
+		DisplayName: Decaying Material
+		Tooltip: ""
+	}
+}
+
 	ErodingCampfire: {
 		DisplayName: Eroding Campfire
 		Tooltip: ""
