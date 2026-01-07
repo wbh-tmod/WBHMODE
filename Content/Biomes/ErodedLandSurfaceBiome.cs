@@ -14,7 +14,7 @@ namespace WBHMODE.Content.Biomes
     public class ErodedLandSurfaceBiome : ModBiome
     {
         public override ModWaterStyle WaterStyle => ModContent.GetInstance<ErodedLandWaterStyle>(); // Sets a water style for when inside this biome
-        //public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<ErodedSurfaceBackgroundStyle>();
+        public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<ErodedLandSurfaceBackgroundStyle>();
         public override int Music => MusicLoader.GetMusicSlot(Mod, "Assets/Music/ErodedLandMusic");
 
         public override bool IsBiomeActive(Player player)
