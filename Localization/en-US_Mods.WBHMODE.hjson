@@ -149,7 +149,7 @@ Items: {
 	}
 
 	HalfDeclineArrow: {
-		DisplayName: Half-life Arrow
+		DisplayName: Decay Arrow
 		Tooltip: ""
 	}
 
