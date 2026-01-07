@@ -238,11 +238,10 @@ Items: {
 		DisplayName: 人参果
 		Tooltip: 所有属性小幅提升
 	}
-}
 
 	ErodingCampfire: {
-		// DisplayName: Eroding Campfire
-		// Tooltip: ""
+		DisplayName: 消蚀篝火
+		Tooltip: ""
 	}
 }
 
