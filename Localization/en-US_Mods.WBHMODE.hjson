@@ -232,6 +232,16 @@ Items: {
 		DisplayName: Decaying Material
 		Tooltip: ""
 	}
+
+	WhiteLoquat: {
+		DisplayName: White Loquat
+		Tooltip: ""
+	}
+
+	GinsengFruit: {
+		DisplayName: Ginseng Fruit
+		Tooltip: ""
+	}
 }
 
 	ErodingCampfire: {

@@ -228,6 +228,16 @@ Items: {
 		DisplayName: 半衰质
 		Tooltip: ""
 	}
+
+	WhiteLoquat: {
+		DisplayName: 白玉枇杷
+		Tooltip: 所有属性小幅提升
+	}
+
+	GinsengFruit: {
+		DisplayName: 人参果
+		Tooltip: 所有属性小幅提升
+	}
 }
 
 	ErodingCampfire: {
