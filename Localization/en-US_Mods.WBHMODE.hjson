@@ -247,6 +247,11 @@ Items: {
 		DisplayName: Eroding Campfire
 		Tooltip: ""
 	}
+
+	ElixirOfImmortality: {
+		DisplayName: Elixir Of Immortality
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

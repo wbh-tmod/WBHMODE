@@ -243,6 +243,11 @@ Items: {
 		DisplayName: 消蚀篝火
 		Tooltip: ""
 	}
+
+	ElixirOfImmortality: {
+		DisplayName: 永生琼浆
+		Tooltip: 所有属性小幅提升
+	}
 }
 
 Projectiles: {
