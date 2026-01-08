@@ -1,4 +1,4 @@
-﻿#define DEBUG
+﻿//#define DEBUG
 
 using System;
 using System.Collections.Generic;
@@ -47,5 +47,6 @@ namespace WBHMODE.Content.Biomes
         }
         //高优先级
         public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
+        //邪恶群系无法入住NPC
     }
 }

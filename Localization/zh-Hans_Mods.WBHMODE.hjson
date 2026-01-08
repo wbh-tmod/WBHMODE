@@ -225,8 +225,8 @@ Items: {
 	}
 
 	ErodingCampfire: {
-		// DisplayName: Eroding Campfire
-		// Tooltip: ""
+		DisplayName: 消蚀篝火
+		Tooltip: ""
 	}
 }
 
