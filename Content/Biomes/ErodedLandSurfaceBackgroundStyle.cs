@@ -54,7 +54,7 @@ namespace WBHMODE.Content.Biomes
                 case 2:
                     return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/ErodedLandBiomeSurfaceMid2");
                 case 3:
-                    return BackgroundTextureLoader.GetBackgroundSlot("ExampleMod/Assets/Textures/Backgrounds/ErodedLandBiomeSurfaceMid3"); // You can use the full path version of GetBackgroundSlot too
+                    return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/ErodedLandBiomeSurfaceMid3"); // You can use the full path version of GetBackgroundSlot too
                 default:
                     return -1;
             }
