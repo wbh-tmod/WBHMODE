@@ -1,4 +1,4 @@
-﻿#define DEBUG
+﻿//#define DEBUG
 
 using System;
 using System.Collections.Generic;
@@ -10,6 +10,7 @@ using Terraria.Graphics.Capture;
 using Terraria.ModLoader;
 using WBHMODE.Common.Systems;
 using WBHMODE.Content.Items.Placeable;
+using Microsoft.Xna.Framework;
 
 namespace WBHMODE.Content.Biomes
 {
@@ -25,7 +26,13 @@ namespace WBHMODE.Content.Biomes
         public override int Music => MusicLoader.GetMusicSlot(Mod, "Assets/Music/ErodedLandMusic");
 
         public override int BiomeTorchItemType => ModContent.ItemType<ErodingTorch>();
-        //public override int BiomeCampfireItemType => ModContent.ItemType<ErodingCampfire>();
+        public override int BiomeCampfireItemType => ModContent.ItemType<ErodingCampfire>();
+
+        // Populate the Bestiary Filter
+        public override string BestiaryIcon => base.BestiaryIcon;
+        public override string BackgroundPath => base.BackgroundPath;
+        public override Color? BackgroundColor => base.BackgroundColor;
+        public override string MapBackground => BackgroundPath; // Re-uses Bestiary Background for Map Background
 
         public override bool IsBiomeActive(Player player)
         {
@@ -38,5 +45,8 @@ namespace WBHMODE.Content.Biomes
 
             return b1 && b3;
         }
+        //高优先级
+        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
+        //邪恶群系无法入住NPC
     }
 }
