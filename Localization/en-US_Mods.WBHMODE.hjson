@@ -252,6 +252,16 @@ Items: {
 		DisplayName: Elixir Of Immortality
 		Tooltip: ""
 	}
+
+	LiquidGoldOreBrick: {
+		DisplayName: Liquid Gold Ore Brick
+		Tooltip: ""
+	}
+
+	LiquidGoldOreBrickWall: {
+		DisplayName: Liquid Gold Ore Brick Wall
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

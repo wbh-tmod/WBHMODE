@@ -14,9 +14,9 @@ namespace WBHMODE.Content.Tiles
 {
     public class FlowingSand : ModTile
     {
-        public override void SetStaticDefaults () { 
+        public override void SetStaticDefaults()
+        { 
 			Main.tileSolid[Type] = true;
-			Main.tileBrick[Type] = true;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 

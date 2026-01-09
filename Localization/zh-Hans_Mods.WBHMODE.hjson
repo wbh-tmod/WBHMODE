@@ -248,6 +248,16 @@ Items: {
 		DisplayName: 永生琼浆
 		Tooltip: 所有属性小幅提升
 	}
+
+	LiquidGoldOreBrick: {
+		DisplayName: 液金矿砖
+		Tooltip: ""
+	}
+
+	LiquidGoldOreBrickWall: {
+		DisplayName: 液金矿砖墙
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
