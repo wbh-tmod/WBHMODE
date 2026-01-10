@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.ModLoader;
 using WBHMODE.Content.Items.Materials;
@@ -19,7 +20,7 @@ namespace WBHMODE.Content.Items.Placeable
             Item.ResearchUnlockCount = 100;
             ItemID.Sets.SortingPriorityMaterials[Item.type] = 58;
             Item.value = Item.sellPrice(silver: 11); // 售价
-
+            
             // This ore can spawn in slime bodies like other pre-boss ores. (copper, tin, iron, etch)
             // It will drop in amount from 3 to 13.
             ItemID.Sets.OreDropsFromSlime[Type] = (3, 13);
@@ -29,6 +30,7 @@ namespace WBHMODE.Content.Items.Placeable
             Item.width = 12;
             Item.height = 12;
             Item.value = 3000;
+            Item.rare = ItemRarityID.Blue;
         }
         public override void AddRecipes() {
             // 魔矿1:1

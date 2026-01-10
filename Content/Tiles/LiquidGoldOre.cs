@@ -37,6 +37,7 @@ namespace WBHMODE.Content.Tiles
             //MineResist = 4f;
             MinPick = 55;
         }
+        
         public override bool IsTileBiomeSightable(int i, int j, ref Color sightColor)
         {
             sightColor = Color.Gold;
