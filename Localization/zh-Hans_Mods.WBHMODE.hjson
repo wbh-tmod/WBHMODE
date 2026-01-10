@@ -42,6 +42,7 @@ Items: {
 		DisplayName: 液金矿锭
 		Tooltip:
 			'''
+
 			"与失落记忆祸福相行"
 			'''
 	}
@@ -233,7 +234,11 @@ Items: {
 
 	DecayingMaterial: {
 		DisplayName: 半衰质
-		Tooltip: "不曾在过去死亡，亦不会在未来生长"
+		Tooltip: 
+			'''
+
+			"不曾在过去死亡，亦不会在未来生长"
+			'''
 	}
 
 	WhiteLoquat: {
