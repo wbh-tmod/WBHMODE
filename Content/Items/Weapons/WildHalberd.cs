@@ -29,7 +29,7 @@ namespace WBHMODE.Content.Items.Weapons
             //Item.SetWeaponValues(56, 12f, 0); // A special method that sets the damage, knockback, and bonus critical strike chance.
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.UseSound = SoundID.Item71;
-            Item.damage = 16;
+            Item.damage = 12;
             Item.knockBack = 0;
             Item.crit = 4;
             Item.rare = ItemRarityID.Blue;

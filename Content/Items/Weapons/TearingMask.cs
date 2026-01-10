@@ -37,7 +37,7 @@ namespace WBHMODE.Content.Items.Weapons
             Item.value = Item.buyPrice(gold: 1, silver: 50); 
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item109;
-            Item.autoReuse = true;
+            //Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<TearingMaskProjectile>();
             Item.shootSpeed = 25f;
         }
