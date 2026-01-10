@@ -267,6 +267,11 @@ Items: {
 		DisplayName: Sculpture Wood
 		Tooltip: ""
 	}
+
+	ChaoticBlock: {
+		DisplayName: Chaotic Block
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
