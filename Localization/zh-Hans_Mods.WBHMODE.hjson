@@ -258,6 +258,11 @@ Items: {
 		DisplayName: 液金矿砖墙
 		Tooltip: ""
 	}
+
+	SculptureWood: {
+		DisplayName: 雕塑木
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
