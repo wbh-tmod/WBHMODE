@@ -34,7 +34,7 @@ Items: {
 	}
 
 	EtchingLiquidBlade: {
-		DisplayName: Etching Liquid Swing Sword
+		DisplayName: Past Gone
 		Tooltip: ""
 	}
 
@@ -149,7 +149,7 @@ Items: {
 	}
 
 	HalfDeclineArrow: {
-		DisplayName: Half Decline Arrow
+		DisplayName: Decay Arrow
 		Tooltip: ""
 	}
 
@@ -228,8 +228,38 @@ Items: {
 		Tooltip: ""
 	}
 
+	DecayingMaterial: {
+		DisplayName: Decaying Material
+		Tooltip: ""
+	}
+
+	WhiteLoquat: {
+		DisplayName: White Loquat
+		Tooltip: ""
+	}
+
+	GinsengFruit: {
+		DisplayName: Ginseng Fruit
+		Tooltip: ""
+	}
+
 	ErodingCampfire: {
 		DisplayName: Eroding Campfire
+		Tooltip: ""
+	}
+
+	ElixirOfImmortality: {
+		DisplayName: Elixir Of Immortality
+		Tooltip: ""
+	}
+
+	LiquidGoldOreBrick: {
+		DisplayName: Liquid Gold Ore Brick
+		Tooltip: ""
+	}
+
+	LiquidGoldOreBrickWall: {
+		DisplayName: Liquid Gold Ore Brick Wall
 		Tooltip: ""
 	}
 }

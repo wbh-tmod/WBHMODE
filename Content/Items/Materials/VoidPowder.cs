@@ -9,6 +9,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
+using WBHMODE.Content.Items.Placeable;
 
 namespace WBHMODE.Content.Items.Materials
 {
@@ -18,6 +19,7 @@ namespace WBHMODE.Content.Items.Materials
         {
             Item.ResearchUnlockCount = 99;
             ItemID.Sets.SortingPriorityMaterials[Type] = 69;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.PurificationPowder; // Shimmer transform
         }
         public override void SetDefaults()
         {
