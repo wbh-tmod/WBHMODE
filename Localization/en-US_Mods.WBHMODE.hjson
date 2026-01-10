@@ -262,6 +262,16 @@ Items: {
 		DisplayName: Liquid Gold Ore Brick Wall
 		Tooltip: ""
 	}
+
+	SculptureWood: {
+		DisplayName: Sculpture Wood
+		Tooltip: ""
+	}
+
+	ChaoticBlock: {
+		DisplayName: Chaotic Block
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
