@@ -26,7 +26,11 @@ Items: {
 
 	LiquidGoldOre: {
 		DisplayName: 液金矿
-		Tooltip: ""
+		Tooltip:
+			'''
+
+			"与失落记忆祸福相行"
+			'''
 	}
 
 	EtchingLiquidBlade: {
@@ -35,8 +39,12 @@ Items: {
 	}
 
 	LiquidGoldBar: {
-		DisplayName: 液金锭
-		Tooltip: ""
+		DisplayName: 液金矿锭
+		Tooltip:
+			'''
+
+			"与失落记忆祸福相行"
+			'''
 	}
 
 	VoidMushroom: {
@@ -156,12 +164,12 @@ Items: {
 
 	SharedThoughts: {
 		DisplayName: 共享思维
-		Tooltip: 召唤墙中眼
+		Tooltip: 召唤巨头雕塑
 	}
 
 	VoidPowder: {
 		DisplayName: 虚粉
-		Tooltip: ""
+		Tooltip: 蔓延消蚀之地
 	}
 
 	FlowingSandstoneBlock: {
@@ -226,7 +234,11 @@ Items: {
 
 	DecayingMaterial: {
 		DisplayName: 半衰质
-		Tooltip: ""
+		Tooltip: 
+			'''
+
+			"不曾在过去死亡，亦不会在未来生长"
+			'''
 	}
 
 	WhiteLoquat: {
@@ -241,12 +253,16 @@ Items: {
 
 	ErodingCampfire: {
 		DisplayName: 消蚀篝火
-		Tooltip: ""
+		Tooltip: 靠近篝火时生命再生提速
 	}
 
 	ElixirOfImmortality: {
 		DisplayName: 永生琼浆
-		Tooltip: 所有属性小幅提升
+		Tooltip:
+			'''
+			所有属性小幅提升
+			"我们拥有和期待的永生并非同一种"
+			'''
 	}
 
 	LiquidGoldOreBrick: {
@@ -256,6 +272,16 @@ Items: {
 
 	LiquidGoldOreBrickWall: {
 		DisplayName: 液金矿砖墙
+		Tooltip: ""
+	}
+
+	SculptureWood: {
+		DisplayName: 雕塑木
+		Tooltip: ""
+	}
+
+	ChaoticBlock: {
+		DisplayName: 错乱块
 		Tooltip: ""
 	}
 }
