@@ -13,26 +13,56 @@ using Terraria.ModLoader;
 
 namespace WBHMODE.Common.GlobalNPCs
 {
-    public class ModGlobalNPC : GlobalNPC
+    internal class ModGlobalNPC : GlobalNPC
     {
         public override bool InstancePerEntity => true;
-        public bool acidEtchingDebuff;
-        public bool halfDeclineDebuff;
+
+        public static readonly int derelictPercent = 10;
+
+        public bool acidEtchingDebuff; // 酸蚀
+
+        public bool halfDeclineDebuff; // 半衰
         //public int halfDeclineFlag;
         public int lifeMax2; // original lifeMax
+
+        public bool derelictDebuff; // 破败
+        public bool derelictDebuffFlag; // 破败结算
+        //public bool derelictDebuffTypeMelee;
+        //public bool derelictDebuffTypeRanged;
+        //public bool derelictDebuffTypeMagic;
+        //public bool derelictDebuffTypeSummoning;
+
+        public int[] derelictDebuffPool = new int[4]; // 血池
+
         public override void ResetEffects(NPC npc) {
             acidEtchingDebuff = false;
             halfDeclineDebuff = false;
             //halfDeclineFlag = 0;
             //lifeMax2 = npc.lifeMax;
+            derelictDebuff = false;
+            derelictDebuffFlag = false;
+            //derelictDebuffTypeMelee = false;
+            //derelictDebuffTypeRanged = false;
+            //derelictDebuffTypeMagic = false;
+            //derelictDebuffTypeSummoning = false;
         }
         public override void OnSpawn(NPC npc, IEntitySource source)
         {
             lifeMax2 = npc.life;
+            derelictDebuffPool[0] = 0;
             //Main.NewText("CurLife: " + npc.life + " | MaxLife: " + npc.lifeMax, new Color(0, 255, 255));
         }
         public override void UpdateLifeRegen(NPC npc, ref int damage)
         {
+            if (derelictDebuffFlag)
+            {
+                int hurt = derelictDebuffPool.Max();
+                //Main.NewText("Hurt: " + hurt);
+                npc.life -= (int)(hurt * (derelictPercent / 100.0));
+                derelictDebuffFlag = false;
+                derelictDebuffPool = [0, 0, 0, 0];
+                //Main.NewText("END");
+            }
             if (acidEtchingDebuff)
             {
                 float v = (float)Math.Sqrt(npc.velocity.X * npc.velocity.X + npc.velocity.Y * npc.velocity.Y);
@@ -47,6 +77,25 @@ namespace WBHMODE.Common.GlobalNPCs
                 int newLifeMax = npc.lifeMax + npc.GetGlobalNPC<ModGlobalNPC>().lifeMax2 / 10;
                 npc.lifeMax = Math.Min(newLifeMax, npc.GetGlobalNPC<ModGlobalNPC>().lifeMax2);
                 npc.life = (int)(percent * npc.lifeMax);
+            }
+        }
+        public override void OnHitByItem(NPC npc, Player player, Item item, NPC.HitInfo hit, int damageDone)
+        {
+            if (derelictDebuff)
+            {
+                derelictDebuffPool[0] += damageDone;
+                //Main.NewText("Damage Class: " + hit.DamageType);
+                //npc.ai[0] += damageDone;
+                base.OnHitByItem(npc, player, item, hit, damageDone);
+            }
+            //Main.NewText("POOL: " + derelictDebuffPool[0]);
+        }
+        public override void OnHitByProjectile(NPC npc, Projectile projectile, NPC.HitInfo hit, int damageDone)
+        {
+            if (derelictDebuff)
+            {
+                //Main.NewText("Damage Class: " + hit.DamageType);
+                base.OnHitByProjectile(npc, projectile, hit, damageDone);
             }
         }
     }

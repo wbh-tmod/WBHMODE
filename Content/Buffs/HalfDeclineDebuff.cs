@@ -48,6 +48,7 @@ namespace WBHMODE.Content.Buffs
             //}
             if (npc.buffTime[buffIndex] == 0)
             {
+                npc.ai[1] = 0f;
                 if (npc.lifeMax != npc.GetGlobalNPC<ModGlobalNPC>().lifeMax2)
                 {
                     float percent = npc.life / (npc.lifeMax * 1.0f);

@@ -332,6 +332,11 @@ Buffs: {
 		DisplayName: Half Decline Debuff
 		Description: Mods.WBHMODE.Buffs.HalfDeclineDebuff.Description
 	}
+
+	DerelictDebuff: {
+		DisplayName: Derelict Debuff
+		Description: Mods.WBHMODE.Buffs.DerelictDebuff.Description
+	}
 }
 
 Biomes: {

@@ -34,7 +34,8 @@ namespace WBHMODE.Content.Items.Weapons
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             //target.AddBuff(ModContent.BuffType<AcidEtchingDebuff>(), 600);
-            target.AddBuff(ModContent.BuffType<HalfDeclineDebuff>(), 600);
+            //target.AddBuff(ModContent.BuffType<HalfDeclineDebuff>(), 600);
+            target.AddBuff(ModContent.BuffType<DerelictDebuff>(), 300);
         }
     }
 

@@ -234,7 +234,7 @@ Items: {
 
 	DecayingMaterial: {
 		DisplayName: 半衰质
-		Tooltip: 
+		Tooltip:
 			'''
 
 			"不曾在过去死亡，亦不会在未来生长"
@@ -343,6 +343,11 @@ Buffs: {
 	HalfDeclineDebuff: {
 		// DisplayName: Half Decline Debuff
 		// Description: Mods.WBHMODE.Buffs.HalfDeclineDebuff.Description
+	}
+
+	DerelictDebuff: {
+		// DisplayName: Derelict Debuff
+		// Description: Mods.WBHMODE.Buffs.DerelictDebuff.Description
 	}
 }
 
