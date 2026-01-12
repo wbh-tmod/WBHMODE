@@ -60,7 +60,7 @@ namespace WBHMODE.Common.GlobalNPCs
                 //Main.NewText("Hurt: " + hurt);
                 npc.life -= (int)(hurt * (derelictPercent / 100.0));
                 derelictDebuffFlag = false;
-                derelictDebuffPool = [0, 0, 0, 0];
+                derelictDebuffPool = [0, 0, 0, 0]; // Melee Ranged Magic Summoning
                 //Main.NewText("END");
             }
             if (acidEtchingDebuff)
@@ -83,7 +83,22 @@ namespace WBHMODE.Common.GlobalNPCs
         {
             if (derelictDebuff)
             {
-                derelictDebuffPool[0] += damageDone;
+                if (hit.DamageType == DamageClass.Melee)
+                {
+                    derelictDebuffPool[0] += damageDone;
+                }
+                if (hit.DamageType == DamageClass.Ranged)
+                {
+                    derelictDebuffPool[1] += damageDone;
+                }
+                if (hit.DamageType == DamageClass.Magic)
+                {
+                    derelictDebuffPool[2] += damageDone;
+                }
+                if (hit.DamageType == DamageClass.Summon)
+                {
+                    derelictDebuffPool[3] += damageDone;
+                }
                 //Main.NewText("Damage Class: " + hit.DamageType);
                 //npc.ai[0] += damageDone;
                 base.OnHitByItem(npc, player, item, hit, damageDone);
@@ -92,9 +107,26 @@ namespace WBHMODE.Common.GlobalNPCs
         }
         public override void OnHitByProjectile(NPC npc, Projectile projectile, NPC.HitInfo hit, int damageDone)
         {
+            //Main.NewText("Damage Class: " + hit.DamageType);
             if (derelictDebuff)
             {
                 //Main.NewText("Damage Class: " + hit.DamageType);
+                if (hit.DamageType == DamageClass.Melee)
+                {
+                    derelictDebuffPool[0] += damageDone;
+                }
+                if (hit.DamageType == DamageClass.Ranged)
+                {
+                    derelictDebuffPool[1] += damageDone;
+                }
+                if (hit.DamageType == DamageClass.Magic)
+                {
+                    derelictDebuffPool[2] += damageDone;
+                }
+                if (hit.DamageType == DamageClass.Summon)
+                {
+                    derelictDebuffPool[3] += damageDone;
+                }
                 base.OnHitByProjectile(npc, projectile, hit, damageDone);
             }
         }
