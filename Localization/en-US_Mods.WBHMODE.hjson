@@ -272,6 +272,11 @@ Items: {
 		DisplayName: Chaotic Block
 		Tooltip: ""
 	}
+
+	VirtualArmy: {
+		DisplayName: Virtual Army
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -289,6 +294,7 @@ Projectiles: {
 	ErrorArrow.DisplayName: Error Arrow
 	ErrorArrowProjectile.DisplayName: Error Arrow Projectile
 	HalfDeclineArrowProjectile.DisplayName: Half Decline Arrow Projectile
+	VirtualSoldier.DisplayName: Virtual Soldier
 }
 
 Tiles: {
@@ -336,6 +342,11 @@ Buffs: {
 	DerelictDebuff: {
 		DisplayName: Derelict Debuff
 		Description: Mods.WBHMODE.Buffs.DerelictDebuff.Description
+	}
+
+	VirtualSoldierBuff: {
+		DisplayName: Virtual Soldier Buff
+		Description: Mods.WBHMODE.Buffs.VirtualSoldierBuff.Description
 	}
 }
 

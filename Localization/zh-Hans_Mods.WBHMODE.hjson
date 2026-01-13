@@ -284,6 +284,11 @@ Items: {
 		DisplayName: 错乱块
 		Tooltip: ""
 	}
+
+	VirtualArmy: {
+		DisplayName: 虚像兵
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -301,6 +306,7 @@ Projectiles: {
 	// ErrorArrow.DisplayName: Error Arrow
 	// ErrorArrowProjectile.DisplayName: Error Arrow Projectile
 	// HalfDeclineArrowProjectile.DisplayName: Half Decline Arrow Projectile
+	// VirtualSoldier.DisplayName: Virtual Soldier
 }
 
 Tiles: {
@@ -348,6 +354,11 @@ Buffs: {
 	DerelictDebuff: {
 		// DisplayName: Derelict Debuff
 		// Description: Mods.WBHMODE.Buffs.DerelictDebuff.Description
+	}
+
+	VirtualSoldierBuff: {
+		// DisplayName: Virtual Soldier Buff
+		// Description: Mods.WBHMODE.Buffs.VirtualSoldierBuff.Description
 	}
 }
 

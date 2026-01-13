@@ -23,6 +23,8 @@ namespace WBHMODE.Common.Players
         public bool silenceArmorBuff;
         public bool silenceArmorTimerBuff;
         public int silenceTimer;
+
+        public bool VirtualArmyBuff;
         //public int composureRingBuffTimer;
         public override void ResetEffects()
         {
@@ -33,6 +35,7 @@ namespace WBHMODE.Common.Players
             silenceArmorTimerBuff = false;
             silenceTimer = 0;
             //composureRingBuffTimer = 0;
+            VirtualArmyBuff = false;
         }
         public override void PostHurt(Player.HurtInfo info)
         {
