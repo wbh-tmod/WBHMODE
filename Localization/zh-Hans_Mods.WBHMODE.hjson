@@ -308,6 +308,11 @@ Items: {
 		DisplayName: 雕塑木墙
 		Tooltip: ""
 	}
+
+	SculptureWoodPlatform: {
+		DisplayName: 雕塑木平台
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

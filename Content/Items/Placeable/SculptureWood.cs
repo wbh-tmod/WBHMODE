@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using WBHMODE.Content.Items.Placeable.Furniture;
 
 namespace WBHMODE.Content.Items.Placeable
 {
@@ -38,6 +39,10 @@ namespace WBHMODE.Content.Items.Placeable
             CreateRecipe()
                 .AddIngredient<SculptureWoodFence>(4)
                 .AddTile(TileID.WorkBenches)
+                .Register();
+            // 徒手 2雕塑木平台 -> 1雕塑木
+            CreateRecipe()
+                .AddIngredient<SculptureWoodPlatform>(2)
                 .Register();
         }
     }

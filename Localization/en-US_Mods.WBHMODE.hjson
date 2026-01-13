@@ -292,6 +292,11 @@ Items: {
 		DisplayName: Sculpture Wood Wall
 		Tooltip: ""
 	}
+
+	SculptureWoodPlatform: {
+		DisplayName: Sculpture Wood Platform
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
