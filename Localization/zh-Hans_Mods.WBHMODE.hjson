@@ -149,11 +149,11 @@ Items: {
 
 	Neuro: {
 		DisplayName: 神经
-		Tooltip: 
-		'''
+		Tooltip:
+			'''
 
-		"石头活了！"
-		'''
+			"石头活了！"
+			'''
 	}
 
 	HalfDeclineArrow: {
@@ -296,6 +296,16 @@ Items: {
 
 	SculptureWoodWorkbench: {
 		DisplayName: 雕塑木工作台
+		Tooltip: ""
+	}
+
+	SculptureWoodFence: {
+		DisplayName: 雕塑木栅栏
+		Tooltip: ""
+	}
+
+	SculptureWoodWall: {
+		DisplayName: 雕塑木墙
 		Tooltip: ""
 	}
 }
