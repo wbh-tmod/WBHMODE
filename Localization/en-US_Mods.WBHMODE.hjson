@@ -277,6 +277,31 @@ Items: {
 		DisplayName: Virtual Army
 		Tooltip: ""
 	}
+
+	SculptureWoodWorkbench: {
+		DisplayName: Sculpture Wood Workbench
+		Tooltip: ""
+	}
+
+	SculptureWoodFence: {
+		DisplayName: Sculpture Wood Fence
+		Tooltip: ""
+	}
+
+	SculptureWoodWall: {
+		DisplayName: Sculpture Wood Wall
+		Tooltip: ""
+	}
+
+	SculptureWoodPlatform: {
+		DisplayName: Sculpture Wood Platform
+		Tooltip: ""
+	}
+
+	SculptureWoodChandelier: {
+		DisplayName: Sculpture Wood Chandelier
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

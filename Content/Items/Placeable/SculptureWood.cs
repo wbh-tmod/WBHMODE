@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using WBHMODE.Content.Items.Placeable.Furniture;
 
 namespace WBHMODE.Content.Items.Placeable
 {
@@ -29,9 +30,20 @@ namespace WBHMODE.Content.Items.Placeable
         // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
         public override void AddRecipes()
         {
-            // 未做：合成表，如从雕塑木平台回到雕塑木。
-            // 未做原因：其他物品还未实现。
-            return;
+            // 工作台 4雕塑木墙 -> 1雕塑木
+            CreateRecipe()
+                .AddIngredient<SculptureWoodWall>(4)
+                .AddTile(TileID.WorkBenches)
+                .Register();
+            // 工作台 4雕塑木栅栏 -> 1雕塑木
+            CreateRecipe()
+                .AddIngredient<SculptureWoodFence>(4)
+                .AddTile(TileID.WorkBenches)
+                .Register();
+            // 徒手 2雕塑木平台 -> 1雕塑木
+            CreateRecipe()
+                .AddIngredient<SculptureWoodPlatform>(2)
+                .Register();
         }
     }
 }

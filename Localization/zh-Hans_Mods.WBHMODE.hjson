@@ -149,7 +149,11 @@ Items: {
 
 	Neuro: {
 		DisplayName: 神经
-		Tooltip: ""
+		Tooltip:
+			'''
+
+			"石头活了！"
+			'''
 	}
 
 	HalfDeclineArrow: {
@@ -287,6 +291,31 @@ Items: {
 
 	VirtualArmy: {
 		DisplayName: 虚像兵
+		Tooltip: ""
+	}
+
+	SculptureWoodWorkbench: {
+		DisplayName: 雕塑木工作台
+		Tooltip: ""
+	}
+
+	SculptureWoodFence: {
+		DisplayName: 雕塑木栅栏
+		Tooltip: ""
+	}
+
+	SculptureWoodWall: {
+		DisplayName: 雕塑木墙
+		Tooltip: ""
+	}
+
+	SculptureWoodPlatform: {
+		DisplayName: 雕塑木平台
+		Tooltip: ""
+	}
+
+	SculptureWoodChandelier: {
+		DisplayName: 雕塑木吊灯
 		Tooltip: ""
 	}
 }
