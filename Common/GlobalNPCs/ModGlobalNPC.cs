@@ -57,8 +57,18 @@ namespace WBHMODE.Common.GlobalNPCs
             if (derelictDebuffFlag)
             {
                 int hurt = derelictDebuffPool.Max();
+                // 先获取最大值，再找到最大值的索引，最后通过索引映射到对应的枚举
+                DamageClass hurtType = new[] { DamageClass.Melee, DamageClass.Ranged, DamageClass.Magic, DamageClass.Summon }[Array.IndexOf(derelictDebuffPool, derelictDebuffPool.Max())];
                 //Main.NewText("Hurt: " + hurt);
-                npc.life -= (int)(hurt * (derelictPercent / 100.0));
+                //npc.life -= (int)(hurt * (derelictPercent / 100.0));
+                npc.SimpleStrikeNPC(
+                    (int)(hurt * (derelictPercent / 100.0)),          // 第1个参数：伤害值
+                    1,                               // 第2个参数：打击方向（1=右，-1=左）
+                    false,                           // 第3个参数：是否暴击（默认false）
+                    0f,                              // 第4个参数：击退力
+                    hurtType,                        // 第5个参数：伤害种类
+                    false                            // 第6个参数：是否禁止玩家交互（默认false）
+                );
                 derelictDebuffFlag = false;
                 derelictDebuffPool = [0, 0, 0, 0]; // Melee Ranged Magic Summoning
                 //Main.NewText("END");

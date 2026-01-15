@@ -365,6 +365,7 @@ namespace WBHMODE.Content.Projectiles
                                 DamageClass.Summon,                           // 第5个参数：伤害种类
                                 false                            // 第6个参数：是否禁止玩家交互（默认false）
                             );
+                            npc.AddBuff(ModContent.BuffType<DerelictDebuff>(), 300);
 
                             // 攻击特效
                             for (int i = 0; i < 5; i++)
