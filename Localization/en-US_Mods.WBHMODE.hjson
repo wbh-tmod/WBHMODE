@@ -297,6 +297,11 @@ Items: {
 		DisplayName: Sculpture Wood Platform
 		Tooltip: ""
 	}
+
+	SculptureWoodChandelier: {
+		DisplayName: Sculpture Wood Chandelier
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

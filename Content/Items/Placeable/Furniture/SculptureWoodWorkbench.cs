@@ -14,16 +14,15 @@ namespace WBHMODE.Content.Items.Placeable.Furniture
             Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.SculptureWoodWorkbench>());
             Item.width = 28; // The item texture's width
             Item.height = 14; // The item texture's height
-            Item.value = 150;
+            Item.value = 2400;
         }
 
-        // 徒手 10雕塑木 -> 雕塑木工作台
+        
         public override void AddRecipes()
         {
             CreateRecipe()
                 .AddIngredient<SculptureWood>(10)
                 .Register();
-                
         }
     }
 }

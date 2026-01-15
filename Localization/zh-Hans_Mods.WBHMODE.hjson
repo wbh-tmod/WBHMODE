@@ -313,6 +313,11 @@ Items: {
 		DisplayName: 雕塑木平台
 		Tooltip: ""
 	}
+
+	SculptureWoodChandelier: {
+		DisplayName: 雕塑木吊灯
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
