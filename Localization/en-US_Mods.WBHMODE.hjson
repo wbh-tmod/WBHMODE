@@ -302,6 +302,11 @@ Items: {
 		DisplayName: Sculpture Wood Chandelier
 		Tooltip: ""
 	}
+
+	SculptureWoodBath: {
+		DisplayName: Sculpture Wood Bath
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

@@ -318,6 +318,11 @@ Items: {
 		DisplayName: 雕塑木吊灯
 		Tooltip: ""
 	}
+
+	SculptureWoodBath: {
+		DisplayName: 雕塑木浴缸
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
