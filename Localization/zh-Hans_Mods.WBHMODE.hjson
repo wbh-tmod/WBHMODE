@@ -323,6 +323,11 @@ Items: {
 		DisplayName: 雕塑木浴缸
 		Tooltip: ""
 	}
+
+	SculptureWoodBed: {
+		DisplayName: 雕塑木床
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

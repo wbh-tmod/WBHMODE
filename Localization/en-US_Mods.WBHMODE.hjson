@@ -307,6 +307,11 @@ Items: {
 		DisplayName: Sculpture Wood Bath
 		Tooltip: ""
 	}
+
+	SculptureWoodBed: {
+		DisplayName: Sculpture Wood Bed
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
