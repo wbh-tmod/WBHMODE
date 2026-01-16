@@ -328,6 +328,11 @@ Items: {
 		DisplayName: 雕塑木床
 		Tooltip: ""
 	}
+
+	SculptureWoodBookcase: {
+		DisplayName: 雕塑木书架
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

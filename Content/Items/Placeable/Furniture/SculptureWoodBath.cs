@@ -17,9 +17,10 @@ namespace WBHMODE.Content.Items.Placeable.Furniture
         
         public override void AddRecipes()
         {
+            // ¾âÄ¾»ú 14µñËÜÄ¾ -> 1µñËÜÄ¾Ô¡¸×
             CreateRecipe()
                 .AddIngredient<SculptureWood>(14)
-                .AddTile(TileID.Anvils)
+                .AddTile(TileID.Sawmill)
                 .Register();
         }
     }
