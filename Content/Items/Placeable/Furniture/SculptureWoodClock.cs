@@ -14,7 +14,7 @@ namespace WBHMODE.Content.Items.Placeable.Furniture
             Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.SculptureWoodClock>());
             Item.width = 26; // The item texture's width
             Item.height = 22; // The item texture's height
-            Item.value = 500;
+            Item.value = 300;
         }
 
         

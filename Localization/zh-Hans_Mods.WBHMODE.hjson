@@ -338,6 +338,11 @@ Items: {
 		DisplayName: 雕塑木时钟
 		Tooltip: ""
 	}
+
+	SculptureWoodDresser: {
+		DisplayName: 雕塑木梳妆台
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -362,6 +367,7 @@ Tiles: {
 	LiquidGoldOre.MapEntry: 液金矿
 	VoidMushroom.MapEntry: 虚蘑菇
 	LiquidGoldBarTile.MapEntry: 液金锭
+	// SculptureWoodDresser.MapEntry: Sculpture Wood Dresser
 }
 
 WorldGen: {

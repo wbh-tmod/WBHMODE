@@ -322,6 +322,11 @@ Items: {
 		DisplayName: Sculpture Wood Clock
 		Tooltip: ""
 	}
+
+	SculptureWoodDresser: {
+		DisplayName: Sculpture Wood Dresser
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -346,6 +351,7 @@ Tiles: {
 	LiquidGoldOre.MapEntry: Liquid Gold Ore
 	VoidMushroom.MapEntry: Void Mushroom
 	LiquidGoldBarTile.MapEntry: Liquid Gold Bar Tile
+	SculptureWoodDresser.MapEntry: Sculpture Wood Dresser
 }
 
 WorldGen: {
