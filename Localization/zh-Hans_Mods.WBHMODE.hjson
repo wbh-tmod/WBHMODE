@@ -333,6 +333,11 @@ Items: {
 		DisplayName: 雕塑木书架
 		Tooltip: ""
 	}
+
+	SculptureWoodClock: {
+		DisplayName: 雕塑木时钟
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

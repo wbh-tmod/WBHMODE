@@ -317,6 +317,11 @@ Items: {
 		DisplayName: Sculpture Wood Bookcase
 		Tooltip: ""
 	}
+
+	SculptureWoodClock: {
+		DisplayName: Sculpture Wood Clock
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
