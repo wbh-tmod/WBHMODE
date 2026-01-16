@@ -327,6 +327,11 @@ Items: {
 		DisplayName: Sculpture Wood Dresser
 		Tooltip: ""
 	}
+
+	SculptureWoodPiano: {
+		DisplayName: Sculpture Wood Piano
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

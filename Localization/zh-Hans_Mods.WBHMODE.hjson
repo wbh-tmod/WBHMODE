@@ -343,6 +343,11 @@ Items: {
 		DisplayName: 雕塑木梳妆台
 		Tooltip: ""
 	}
+
+	SculptureWoodPiano: {
+		DisplayName: 雕塑木钢琴
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
