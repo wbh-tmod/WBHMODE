@@ -342,6 +342,11 @@ Items: {
 		DisplayName: Sculpture Wood Toilet
 		Tooltip: ""
 	}
+
+	SculptureWoodCandelabra: {
+		DisplayName: Sculpture Wood Candelabra
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

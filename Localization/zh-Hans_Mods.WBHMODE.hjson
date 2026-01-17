@@ -358,6 +358,11 @@ Items: {
 		DisplayName: 雕塑木马桶
 		Tooltip: ""
 	}
+
+	SculptureWoodCandelabra: {
+		DisplayName: 雕塑木烛台
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
