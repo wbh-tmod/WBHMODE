@@ -352,6 +352,11 @@ Items: {
 		DisplayName: Sculpture Wood Candle
 		Tooltip: ""
 	}
+
+	SculptureWoodChair: {
+		DisplayName: Sculpture Wood Chair
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

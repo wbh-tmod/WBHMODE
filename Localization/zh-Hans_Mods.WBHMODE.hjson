@@ -368,6 +368,11 @@ Items: {
 		DisplayName: 雕塑木蜡烛
 		Tooltip: ""
 	}
+
+	SculptureWoodChair: {
+		DisplayName: 雕塑木椅
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
