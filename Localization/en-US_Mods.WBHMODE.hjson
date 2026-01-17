@@ -332,6 +332,11 @@ Items: {
 		DisplayName: Sculpture Wood Piano
 		Tooltip: ""
 	}
+
+	SculptureWoodSofa: {
+		DisplayName: Sculpture Wood Sofa
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

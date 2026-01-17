@@ -348,6 +348,11 @@ Items: {
 		DisplayName: 雕塑木钢琴
 		Tooltip: ""
 	}
+
+	SculptureWoodSofa: {
+		DisplayName: 雕塑木沙发
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
