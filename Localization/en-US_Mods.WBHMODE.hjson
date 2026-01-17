@@ -302,6 +302,36 @@ Items: {
 		DisplayName: Sculpture Wood Chandelier
 		Tooltip: ""
 	}
+
+	SculptureWoodBath: {
+		DisplayName: Sculpture Wood Bath
+		Tooltip: ""
+	}
+
+	SculptureWoodBed: {
+		DisplayName: Sculpture Wood Bed
+		Tooltip: ""
+	}
+
+	SculptureWoodBookcase: {
+		DisplayName: Sculpture Wood Bookcase
+		Tooltip: ""
+	}
+
+	SculptureWoodClock: {
+		DisplayName: Sculpture Wood Clock
+		Tooltip: ""
+	}
+
+	SculptureWoodDresser: {
+		DisplayName: Sculpture Wood Dresser
+		Tooltip: ""
+	}
+
+	SculptureWoodPiano: {
+		DisplayName: Sculpture Wood Piano
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -326,6 +356,7 @@ Tiles: {
 	LiquidGoldOre.MapEntry: Liquid Gold Ore
 	VoidMushroom.MapEntry: Void Mushroom
 	LiquidGoldBarTile.MapEntry: Liquid Gold Bar Tile
+	SculptureWoodDresser.MapEntry: Sculpture Wood Dresser
 }
 
 WorldGen: {

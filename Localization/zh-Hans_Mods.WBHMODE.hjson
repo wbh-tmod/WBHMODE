@@ -318,6 +318,36 @@ Items: {
 		DisplayName: 雕塑木吊灯
 		Tooltip: ""
 	}
+
+	SculptureWoodBath: {
+		DisplayName: 雕塑木浴缸
+		Tooltip: ""
+	}
+
+	SculptureWoodBed: {
+		DisplayName: 雕塑木床
+		Tooltip: ""
+	}
+
+	SculptureWoodBookcase: {
+		DisplayName: 雕塑木书架
+		Tooltip: ""
+	}
+
+	SculptureWoodClock: {
+		DisplayName: 雕塑木时钟
+		Tooltip: ""
+	}
+
+	SculptureWoodDresser: {
+		DisplayName: 雕塑木梳妆台
+		Tooltip: ""
+	}
+
+	SculptureWoodPiano: {
+		DisplayName: 雕塑木钢琴
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -342,6 +372,7 @@ Tiles: {
 	LiquidGoldOre.MapEntry: 液金矿
 	VoidMushroom.MapEntry: 虚蘑菇
 	LiquidGoldBarTile.MapEntry: 液金锭
+	// SculptureWoodDresser.MapEntry: Sculpture Wood Dresser
 }
 
 WorldGen: {
