@@ -47,20 +47,21 @@ namespace WBHMODE.Content.Tiles.Furniture
         {
             Tile tile = Framing.GetTileSafely(i, j);
             Player player = Main.LocalPlayer;
+            Entity entity = info.RestingEntity;
             int nextStyleHeight = 40;
 
             info.DirectionOffset = 0;
             float offset = 0f;
-            if (tile.TileFrameX < 17 && player.direction == 1)
+            if (tile.TileFrameX < 17 && entity.direction == 1)
                 offset = 8f;
-            if (tile.TileFrameX < 17 && player.direction == -1)
+            if (tile.TileFrameX < 17 && entity.direction == -1)
                 offset = -8f;
-            if (tile.TileFrameX > 34 && player.direction == 1)
+            if (tile.TileFrameX > 34 && entity.direction == 1)
                 offset = -8f;
-            if (tile.TileFrameX > 34 && player.direction == -1)
+            if (tile.TileFrameX > 34 && entity.direction == -1)
                 offset = 8f;
             info.VisualOffset = new Vector2(offset, 0f);
-            info.TargetDirection = player.direction;
+            info.TargetDirection = entity.direction;
 
             info.AnchorTilePosition.X = i;
             info.AnchorTilePosition.Y = j;
@@ -69,6 +70,7 @@ namespace WBHMODE.Content.Tiles.Furniture
             {
                 info.AnchorTilePosition.Y++;
             }
+            return;
         }
 
 

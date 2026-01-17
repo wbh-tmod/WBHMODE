@@ -337,6 +337,11 @@ Items: {
 		DisplayName: Sculpture Wood Sofa
 		Tooltip: ""
 	}
+
+	SculptureWoodToilet: {
+		DisplayName: Sculpture Wood Toilet
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

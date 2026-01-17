@@ -353,6 +353,11 @@ Items: {
 		DisplayName: 雕塑木沙发
 		Tooltip: ""
 	}
+
+	SculptureWoodToilet: {
+		DisplayName: 雕塑木马桶
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
