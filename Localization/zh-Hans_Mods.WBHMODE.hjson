@@ -363,6 +363,11 @@ Items: {
 		DisplayName: 雕塑木烛台
 		Tooltip: ""
 	}
+
+	SculptureWoodCandle: {
+		DisplayName: 雕塑木蜡烛
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

@@ -347,6 +347,11 @@ Items: {
 		DisplayName: Sculpture Wood Candelabra
 		Tooltip: ""
 	}
+
+	SculptureWoodCandle: {
+		DisplayName: Sculpture Wood Candle
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
