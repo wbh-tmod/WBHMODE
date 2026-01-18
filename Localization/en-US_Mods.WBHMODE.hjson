@@ -332,6 +332,31 @@ Items: {
 		DisplayName: Sculpture Wood Piano
 		Tooltip: ""
 	}
+
+	SculptureWoodSofa: {
+		DisplayName: Sculpture Wood Sofa
+		Tooltip: ""
+	}
+
+	SculptureWoodToilet: {
+		DisplayName: Sculpture Wood Toilet
+		Tooltip: ""
+	}
+
+	SculptureWoodCandelabra: {
+		DisplayName: Sculpture Wood Candelabra
+		Tooltip: ""
+	}
+
+	SculptureWoodCandle: {
+		DisplayName: Sculpture Wood Candle
+		Tooltip: ""
+	}
+
+	SculptureWoodChair: {
+		DisplayName: Sculpture Wood Chair
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

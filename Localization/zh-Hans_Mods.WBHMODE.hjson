@@ -348,6 +348,31 @@ Items: {
 		DisplayName: 雕塑木钢琴
 		Tooltip: ""
 	}
+
+	SculptureWoodSofa: {
+		DisplayName: 雕塑木沙发
+		Tooltip: ""
+	}
+
+	SculptureWoodToilet: {
+		DisplayName: 雕塑木马桶
+		Tooltip: ""
+	}
+
+	SculptureWoodCandelabra: {
+		DisplayName: 雕塑木烛台
+		Tooltip: ""
+	}
+
+	SculptureWoodCandle: {
+		DisplayName: 雕塑木蜡烛
+		Tooltip: ""
+	}
+
+	SculptureWoodChair: {
+		DisplayName: 雕塑木椅
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
