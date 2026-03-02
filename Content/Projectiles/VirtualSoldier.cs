@@ -203,7 +203,7 @@ namespace WBHMODE.Content.Projectiles
                         //AttackCycle(targetPosition - Projectile.Center);
                         //// 近战攻击判定
                         //MeleeAttackAround(targetPosition - Projectile.Center);
-                        //break;
+                        break;
                     }
                 case ProjectileState.Explode:
                     {
