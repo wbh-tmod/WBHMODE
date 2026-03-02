@@ -79,6 +79,20 @@ namespace WBHMODE.Content.Projectiles
         private const int ExplodeTimer = 2;          // 自爆计时
 
         private const float MaxView = 120 * 16f;       // 最大索敌视野
+                                                       // 攻击相关常量（可根据需求调整）
+        private float CollisionDistance = 60 * 16f; // 近距离/远距离分界（单位：格）
+        private int CloseAttackDamage = 20;    // 近距离冲撞伤害
+        private int LongAttackDamage = 40;     // 远距离冲刺伤害
+        private int CloseHitInvincibility = 15; // 近距离击中无敌帧（嘀嗒）
+        private int LongHitInvincibility = 12;  // 远距离击中无敌帧（嘀嗒）
+        private float DashCooldown = 2f;       // 冲刺冷却（秒）
+        private float DashMoveDistance = 2f;   // 冲刺后额外移动距离（格）
+
+        // 状态控制变量
+        private float _dashCooldownTimer = 0f; // 冲刺冷却计时器（帧，1秒=60帧）
+        private bool _isDashing = false;       // 是否正在冲刺
+        private Vector2 _dashDirection = Vector2.Zero; // 冲刺方向
+        private float _dashMoveTimer = 0f;     // 冲刺后移动计时器
         public override void SetDefaults()
         {
             Projectile.width = 16;
@@ -150,34 +164,25 @@ namespace WBHMODE.Content.Projectiles
             }
             player.AddBuff(ModContent.BuffType<VirtualSoldierBuff>(), 2);
             ProjectileState prevState = State;
-            NPC tar = null;
 
-            // 如果有强制瞄准位置，就进入攻击状态
-            if (TargetLocation != Vector2.Zero)
+            NPC tar = null;
+            NPC npc = FindCloestEnemy(Projectile.Center, MaxView, (n) =>
             {
-                //Main.NewText("Have Target");
-                //State = ProjectileState.Attack;
+                return n.CanBeChasedBy() && !n.dontTakeDamage;
+                //return n.CanBeChasedBy() && !n.dontTakeDamage && Collision.CanHitLine(Projectile.Center, 1, 1, n.Center, 1, 1);
+            });
+            tar = npc;
+            // 如果能找到NPC进入攻击状态，否则返回玩家身边
+            if (tar != null)
+            {
+                State = ProjectileState.Attack;
             }
             else
             {
-                NPC npc = FindCloestEnemy(Projectile.Center, MaxView, (n) =>
-                {
-                    return n.CanBeChasedBy() && !n.dontTakeDamage && Collision.CanHitLine(Projectile.Center, 1, 1, n.Center, 1, 1);
-                });
-                tar = npc;
-                // 如果能找到NPC进入攻击状态，否则返回玩家身边
-                if (tar != null)
-                {
-                    Main.NewText("ATTACK");
-                    State = ProjectileState.Attack;
-                }
-                else
-                {
-                    State = ProjectileState.MoveAroundPlayer;
-                    // 重置攻击阶段，回到初始状态
-                    CurrentAttackPhase = AttackPhase.Approach;
-                    AttackPhaseTimer = 0;
-                }
+                State = ProjectileState.MoveAroundPlayer;
+                // 重置攻击阶段，回到初始状态
+                CurrentAttackPhase = AttackPhase.Approach;
+                AttackPhaseTimer = 0;
             }
 
             // 状态切换时重置计时器
@@ -203,6 +208,39 @@ namespace WBHMODE.Content.Projectiles
                         //AttackCycle(targetPosition - Projectile.Center);
                         //// 近战攻击判定
                         //MeleeAttackAround(targetPosition - Projectile.Center);
+                        // 先更新冷却计时器（每帧递减）
+                        if (_dashCooldownTimer > 0)
+                        {
+                            _dashCooldownTimer--;
+                        }
+
+                        // 如果没有锁定目标，切回绕玩家移动状态
+                        if (tar == null || !tar.active || tar.friendly)
+                        {
+                            State = ProjectileState.MoveAroundPlayer;
+                            _isDashing = false; // 重置冲刺状态
+                            break;
+                        }
+
+                        // 计算敌怪与玩家的距离（转换为格：像素/16）
+                        float distanceToPlayer = Vector2.Distance(tar.Center, Main.player[Projectile.owner].Center) / 16f;
+
+                        // 1. 近距离冲撞攻击（敌怪在CollisionDistance格内）
+                        if (distanceToPlayer <= CollisionDistance && !_isDashing)
+                        {
+                            CloseRangeRamAttack(tar);
+                        }
+                        // 2. 远距离冲刺攻击（敌怪超出范围，且冲刺冷却完成）
+                        else if (distanceToPlayer > CollisionDistance && _dashCooldownTimer <= 0)
+                        {
+                            LongRangeDashAttack(tar);
+                        }
+                        // 3. 处理冲刺后的持续移动
+                        else if (_isDashing)
+                        {
+                            HandleDashAfterMove();
+                        }
+
                         break;
                     }
                 case ProjectileState.Explode:
@@ -565,6 +603,140 @@ namespace WBHMODE.Content.Projectiles
         public override void ReceiveExtraAI(BinaryReader reader)
         {
             TargetLocation = reader.ReadVector2();
+        }
+
+        // ========== 近距离冲撞攻击函数 ==========
+        /// <summary>
+        /// 近距离冲撞攻击：向目标移动并造成碰撞伤害，击中后目标获得15嘀嗒无敌帧
+        /// </summary>
+        /// <param name="target">锁定的敌怪</param>
+        private void CloseRangeRamAttack(NPC target)
+        {
+            // 计算向目标移动的方向（归一化，避免速度过快）
+            Vector2 moveDir = (target.Center - Projectile.Center).SafeNormalize(Vector2.Zero);
+
+            // 设置冲撞速度（可调整，建议3-5）
+            Projectile.velocity = moveDir * 4f;
+
+            // 检测碰撞并造成伤害
+            if (Projectile.Hitbox.Intersects(target.Hitbox) && !target.immortal && !target.dontTakeDamage)
+            {
+                // 造成伤害（参数：伤害值、击退、无敌帧）
+
+                target.SimpleStrikeNPC(
+                            Projectile.damage + 10,          // 第1个参数：伤害值（近战伤害+10）
+                                                             //hitDirection,                    // 第3个参数：打击方向（1=右，-1=左）
+                            1,
+                            false,                           // 第4个参数：是否暴击（默认false）
+                            0f,
+                            //Projectile.knockBack,            // 第2个参数：击退力
+                            DamageClass.Summon,                           // 第5个参数：伤害种类
+                            false                            // 第6个参数：是否禁止玩家交互（默认false）
+                        );
+                //target.StrikeNPC(CloseAttackDamage, 0f, 0, false, false, false);
+                //// 设置15嘀嗒局部无敌帧（只对当前召唤物生效）
+                //target.immune[Projectile.owner] = CloseHitInvincibility;
+                //target.immuneTime = CloseHitInvincibility;
+
+                // 冲撞后短暂停住（可选，增加打击感）
+                Projectile.velocity = Vector2.Zero;
+            }
+        }
+
+        // ========== 远距离冲刺攻击函数 ==========
+        /// <summary>
+        /// 远距离冲刺攻击：高速冲刺，对路径上所有敌怪造成伤害，击中后目标获得12嘀嗒静态无敌帧
+        /// </summary>
+        /// <param name="target">锁定的敌怪</param>
+        private void LongRangeDashAttack(NPC target)
+        {
+            // 标记开始冲刺
+            _isDashing = true;
+            // 记录冲刺方向
+            _dashDirection = (target.Center - Projectile.Center).SafeNormalize(Vector2.Zero);
+            // 设置冲刺速度（比近距离更快，建议8-10）
+            Projectile.velocity = _dashDirection * 9f;
+            // 重置冲刺后移动计时器（2格距离对应的移动时长，根据速度计算）
+            _dashMoveTimer = (DashMoveDistance * 16f) / Projectile.velocity.Length();
+            // 启动冲刺冷却（2秒 = 120帧）
+            _dashCooldownTimer = DashCooldown * 60f;
+
+            // 检测冲刺路径上的所有敌怪并造成伤害
+            foreach (NPC npc in Main.npc)
+            {
+                if (!npc.active || npc.friendly || npc.immortal || npc.dontTakeDamage)
+                    continue;
+
+                // 检测碰撞（冲刺路径上的敌怪）
+                if (Projectile.Hitbox.Intersects(npc.Hitbox))
+                {
+                    // 造成更高的远距离伤害
+                    //npc.StrikeNPC(LongAttackDamage, 0f, 0, false, false, false);
+                    npc.SimpleStrikeNPC(
+                                Projectile.damage + 10,          // 第1个参数：伤害值（近战伤害+10）
+                                //hitDirection,                    // 第3个参数：打击方向（1=右，-1=左）
+                                1,
+                                false,                           // 第4个参数：是否暴击（默认false）
+                                0f,
+                                //Projectile.knockBack,            // 第2个参数：击退力
+                                DamageClass.Summon,                           // 第5个参数：伤害种类
+                                false                            // 第6个参数：是否禁止玩家交互（默认false）
+                            );
+                    // 设置12嘀嗒静态无敌帧
+                    //npc.immune[Projectile.owner] = LongHitInvincibility;
+                    //npc.immuneTime = LongHitInvincibility;
+
+                    // 如果击中的是锁定目标，标记冲刺伤害完成（可选）
+                    if (npc.whoAmI == target.whoAmI)
+                    {
+                        // 可添加击中目标后的特效/逻辑
+                    }
+                }
+            }
+        }
+
+        // ========== 处理冲刺后持续移动逻辑 ==========
+        /// <summary>
+        /// 冲刺击中目标后，沿原方向继续移动2格后停下，并尝试继续造成碰撞伤害
+        /// </summary>
+        private void HandleDashAfterMove()
+        {
+            // 沿原冲刺方向继续移动
+            Projectile.velocity = _dashDirection * 9f;
+            // 递减移动计时器
+            _dashMoveTimer--;
+
+            // 继续检测路径上的敌怪伤害
+            foreach (NPC npc in Main.npc)
+            {
+                if (!npc.active || npc.friendly || npc.immortal || npc.dontTakeDamage)
+                    continue;
+
+                if (Projectile.Hitbox.Intersects(npc.Hitbox))
+                {
+                    npc.SimpleStrikeNPC(
+                                Projectile.damage + 10,          // 第1个参数：伤害值（近战伤害+10）
+                                                                 //hitDirection,                    // 第3个参数：打击方向（1=右，-1=左）
+                                1,
+                                false,                           // 第4个参数：是否暴击（默认false）
+                                0f,
+                                //Projectile.knockBack,            // 第2个参数：击退力
+                                DamageClass.Summon,                           // 第5个参数：伤害种类
+                                false                            // 第6个参数：是否禁止玩家交互（默认false）
+                            );
+                    //npc.StrikeNPC(LongAttackDamage, 0f, 0, false, false, false);
+                    //npc.immune[Projectile.owner] = LongHitInvincibility;
+                    //npc.immuneTime = LongHitInvincibility;
+                }
+            }
+
+            // 移动时长耗尽，停止冲刺
+            if (_dashMoveTimer <= 0)
+            {
+                _isDashing = false;
+                Projectile.velocity = Vector2.Zero; // 停下
+                _dashDirection = Vector2.Zero;     // 重置冲刺方向
+            }
         }
     }
 }
