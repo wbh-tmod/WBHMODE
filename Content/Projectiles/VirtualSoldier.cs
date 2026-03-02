@@ -12,6 +12,14 @@ using Terraria.GameContent;
 using System.IO;
 using WBHMODE.Content.Buffs;
 
+/*
+ * 虚像兵最远可以锁定120格的敌怪，距离玩家60格以外2s后爆炸，并重新生成在玩家身侧；
+ * 距离玩家60格以内时，虚像兵倾向于靠近敌怪造成碰撞伤害（做一个攻击动画），击中敌怪时会造成15嘀嗒的局部无敌帧；
+ * 虚像兵会在下列情况中发起高速冲刺：1.距离玩家30格以外超过2s且锁定敌怪时；
+ * 2.目标敌怪与自身距离超过30格时，虚像兵的冲刺会造成更高的伤害且对路径上的所有敌怪造成碰撞伤害和12嘀嗒静态无敌帧
+ * 每两次冲刺之间至少存在2s间隔，且总会在对目标敌怪造成伤害后沿原方向继续移动2s格时停下，并尝试继续造成碰撞伤害。
+*/
+
 namespace WBHMODE.Content.Projectiles
 {
     public class VirtualSoldier : ModProjectile
@@ -20,6 +28,8 @@ namespace WBHMODE.Content.Projectiles
         {
             MoveAroundPlayer,
             Attack, // 重命名为Attack更贴合近战逻辑，包含贴近+远离循环
+            Dash,
+            Explode,
         };
 
         // 新增攻击阶段枚举，控制贴近/远离
@@ -65,6 +75,10 @@ namespace WBHMODE.Content.Projectiles
         private const float ApproachSpeed = 8f;      // 贴近速度
         private const float RetreatSpeed = 6f;       // 后撤速度
 
+        private const int ExplodeDistance = 60;      // 自爆距离
+        private const int ExplodeTimer = 2;          // 自爆计时
+
+        private const float MaxView = 120 * 16f;       // 最大索敌视野
         public override void SetDefaults()
         {
             Projectile.width = 16;
@@ -119,6 +133,11 @@ namespace WBHMODE.Content.Projectiles
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
+            //if (State == ProjectileState.Explode)
+            //{
+            //    Explode(player);
+            //    State = ProjectileState.MoveAroundPlayer;
+            //}
             var modPlayer = player.GetModPlayer<ModGlobalPlayer>();
 
             if (player.dead)
@@ -130,30 +149,26 @@ namespace WBHMODE.Content.Projectiles
                 Projectile.timeLeft = 2;
             }
             player.AddBuff(ModContent.BuffType<VirtualSoldierBuff>(), 2);
-
             ProjectileState prevState = State;
             NPC tar = null;
 
             // 如果有强制瞄准位置，就进入攻击状态
             if (TargetLocation != Vector2.Zero)
             {
-                State = ProjectileState.Attack;
+                //Main.NewText("Have Target");
+                //State = ProjectileState.Attack;
             }
             else
             {
-                NPC npc = FindCloestEnemy(Projectile.Center, 1200f, (n) =>
+                NPC npc = FindCloestEnemy(Projectile.Center, MaxView, (n) =>
                 {
                     return n.CanBeChasedBy() && !n.dontTakeDamage && Collision.CanHitLine(Projectile.Center, 1, 1, n.Center, 1, 1);
                 });
-
-                if (Vector2.Distance(Projectile.Center, player.Center) < 700)
-                {
-                    tar = npc;
-                }
-
+                tar = npc;
                 // 如果能找到NPC进入攻击状态，否则返回玩家身边
                 if (tar != null)
                 {
+                    Main.NewText("ATTACK");
                     State = ProjectileState.Attack;
                 }
                 else
@@ -183,11 +198,17 @@ namespace WBHMODE.Content.Projectiles
                     }
                 case ProjectileState.Attack:
                     {
-                        var targetPosition = (TargetLocation == Vector2.Zero) ? tar.Center : TargetLocation;
-                        // 攻击循环逻辑（贴近-远离-冷却）
-                        AttackCycle(targetPosition - Projectile.Center);
-                        // 近战攻击判定
-                        MeleeAttackAround(targetPosition - Projectile.Center);
+                        //var targetPosition = (TargetLocation == Vector2.Zero) ? tar.Center : TargetLocation;
+                        //// 攻击循环逻辑（贴近-远离-冷却）
+                        //AttackCycle(targetPosition - Projectile.Center);
+                        //// 近战攻击判定
+                        //MeleeAttackAround(targetPosition - Projectile.Center);
+                        //break;
+                    }
+                case ProjectileState.Explode:
+                    {
+                        Main.NewText("Explode!");
+                        Explode(player);
                         break;
                     }
             }
@@ -219,6 +240,9 @@ namespace WBHMODE.Content.Projectiles
         /// 攻击循环逻辑：贴近→远离→冷却→再贴近
         /// </summary>
         /// <param name="diff">召唤物到目标的向量</param>
+        // 保留原有配置常量（需确保类中已定义）
+        private const float ReturnToPlayerSpeed = 7f; // 新增：返回玩家速度
+
         private void AttackCycle(Vector2 diff)
         {
             float distance = diff.Length();
@@ -230,9 +254,15 @@ namespace WBHMODE.Content.Projectiles
             // 存储侧方撤退的方向（用localAI2临时存储，避免每帧随机变化）
             float retreatAngle = Projectile.localAI[2];
 
+            // 获取玩家实例（核心新增：冷却阶段需要向玩家移动）
+            Player player = Main.player[Projectile.owner];
+            // 计算到玩家的向量（新增）
+            Vector2 toPlayerDiff = player.Center - Projectile.Center;
+            toPlayerDiff.Normalize();
+
             switch (CurrentAttackPhase)
             {
-                // 阶段1：贴近敌人（直到进入攻击距离）
+                // 阶段1：贴近敌人（逻辑不变）
                 case AttackPhase.Approach:
                     {
                         // 向敌人移动，速度更快
@@ -250,7 +280,7 @@ namespace WBHMODE.Content.Projectiles
                         break;
                     }
 
-                // 阶段2：从敌人侧方远离（后撤到指定距离）
+                // 阶段2：从敌人侧方远离（逻辑不变）
                 case AttackPhase.Retreat:
                     {
                         // 将朝向敌人的向量，旋转到侧方 → 再反向就是侧方撤退方向
@@ -269,14 +299,18 @@ namespace WBHMODE.Content.Projectiles
                         break;
                     }
 
-                // 阶段3：冷却1秒后，重新贴近
+                // 阶段3：冷却阶段 → 修改为：移动到玩家身边
                 case AttackPhase.Cooldown:
                     {
-                        // 冷却期间缓慢移动，保持位置
-                        Projectile.velocity *= 0.95f;
+                        // 核心修改：向玩家中心移动（平滑插值保证移动流畅）
+                        Projectile.velocity = Vector2.Lerp(Projectile.velocity, toPlayerDiff * ReturnToPlayerSpeed, 0.15f);
 
-                        // 1秒（60帧）冷却结束，回到贴近阶段
-                        if (AttackPhaseTimer >= RetreatDuration)
+                        // 可选优化：到达玩家附近（如30像素内）则提前结束冷却
+                        float distanceToPlayer = Vector2.Distance(Projectile.Center, player.Center);
+                        bool reachPlayer = distanceToPlayer <= 30f;
+
+                        // 1秒（60帧）冷却结束，或已到达玩家身边 → 回到贴近阶段
+                        if (AttackPhaseTimer >= RetreatDuration || reachPlayer)
                         {
                             CurrentAttackPhase = AttackPhase.Approach;
                             AttackPhaseTimer = 0; // 重置阶段计时器
@@ -294,38 +328,6 @@ namespace WBHMODE.Content.Projectiles
             Main.spriteBatch.Draw(tex, Projectile.Center - Main.screenPosition, null, Color.White, rot,
                 tex.Size() / 2f, Projectile.scale, 0, 0);
             return false;
-        }
-
-        // 保留原有远程射击方法（备用）
-        public void ShootAround(Vector2 diff)
-        {
-            Timer++;
-            float distance = diff.Length();
-            diff.Normalize();
-            Projectile.rotation = diff.ToRotation();
-            if (Timer % 30 < 1)
-            {
-                Projectile.NewProjectileDirect(Projectile.GetSource_FromAI(),
-                    Projectile.Center + Projectile.velocity + diff * 30, diff * 13f,
-                    ProjectileID.GreenLaser,
-                    Projectile.damage + 5, Projectile.knockBack, Projectile.owner);
-            }
-            if (distance > 500)
-            {
-                Projectile.velocity = (Projectile.velocity * 20f + diff * 5) / 21f;
-            }
-            else
-            {
-                Projectile.velocity *= 0.97f;
-            }
-            if (distance > 200)
-            {
-                Projectile.velocity = (Projectile.velocity * 40f + diff * 5) / 41f;
-            }
-            else if (distance < 180)
-            {
-                Projectile.velocity = (Projectile.velocity * 20f + diff * -4) / 21f;
-            }
         }
 
         // 攻击冷却计时器
@@ -383,30 +385,175 @@ namespace WBHMODE.Content.Projectiles
         }
 
         /// <summary>
+        /// 自爆逻辑（修复核心：瞬移到玩家身边）
+        /// </summary>
+        /// <param name="player"></param>
+        private void Explode(Player player)
+        {
+            // 1. 播放爆炸特效（可选）
+            for (int i = 0; i < 20; i++)
+            {
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height,
+                             DustID.Ash, Main.rand.NextFloat(-4, 4), Main.rand.NextFloat(-4, 4),
+                             100, Color.OrangeRed, 1.5f);
+            }
+
+            // 2. 核心修复：瞬移到玩家身侧（偏移随机位置避免重叠）
+            Vector2 playerSidePos = player.Center + new Vector2(
+                Main.rand.Next(-30, 30), // X轴偏移
+                Main.rand.Next(-30, 30)  // Y轴偏移
+            );
+
+            // 确保瞬移位置合法（无墙体阻挡）
+            if (Collision.CanHit(player.Center, 1, 1, playerSidePos, 1, 1))
+            {
+                Projectile.Center = playerSidePos;
+            }
+            else
+            {
+                // 如果身侧有墙体，直接瞬移到玩家中心
+                Projectile.Center = player.Center;
+            }
+
+            // 3. 重置速度和状态
+            Projectile.velocity = Vector2.Zero;
+            State = ProjectileState.MoveAroundPlayer;
+            CurrentAttackPhase = AttackPhase.Approach;
+            AttackPhaseTimer = 0;
+
+            // 4. 网络同步：确保多人游戏下位置更新
+            if (Main.netMode != NetmodeID.SinglePlayer)
+            {
+                NetMessage.SendData(MessageID.SyncProjectile, -1, -1, null, Projectile.whoAmI);
+            }
+
+            //Main.NewText("虚像兵自爆后重新出现在玩家身边！");
+        }
+
+
+        /// <summary>
         /// 绕玩家移动逻辑
         /// </summary>
         /// <param name="player"></param>
+        //private void MoveAroundPlayer(Player player)
+        //{
+        //    Vector2 diff = Projectile.Center - player.Center;
+        //    //Main.NewText("Dis: " +(int) diff.Length()/16);
+        //    if (diff.Length() > ExplodeDistance * 16f && Timer < ExplodeTimer * 60) // 距离过大但不够计时
+        //    {
+        //        Timer++;
+        //        //Main.NewText("Timer:" + Timer);
+        //    }
+        //    else if (diff.Length() <= ExplodeDistance * 16f) 
+        //    {
+        //        Timer = 0;
+        //    }
+        //    else
+        //    {
+        //        //Main.NewText("Explode");
+        //        Timer = 0;
+        //        State = ProjectileState.Explode;
+        //        return;
+        //    }
+        //    diff.Normalize();
+        //    Projectile.velocity -= diff * 0.2f;
+
+        //    if (Projectile.Center.X < player.Center.X)
+        //    {
+        //        Projectile.velocity.X += _nearPlayerSpeed;
+        //    }
+        //    if (Projectile.Center.X > player.Center.X)
+        //    {
+        //        Projectile.velocity.X -= _nearPlayerSpeed;
+        //    }
+        //    if (Projectile.Center.Y < player.Center.Y)
+        //    {
+        //        Projectile.velocity.Y += _nearPlayerSpeed;
+        //    }
+        //    if (Projectile.Center.Y > player.Center.Y)
+        //    {
+        //        Projectile.velocity.Y -= _nearPlayerSpeed;
+        //    }
+        //    // 定义速度上限常量（便于后续调整）
+        //    float maxSpeed = 4f;
+
+        //    // 计算当前速度向量的长度（勾股定理：√(x² + y²)）
+        //    float currentSpeed = Projectile.velocity.Length();
+
+        //    // 如果当前速度超过上限，等比缩放到maxSpeed
+        //    if (currentSpeed > maxSpeed && currentSpeed > 0) // 避免除以0
+        //    {
+        //        // 等比缩放公式：新速度 = 原速度方向 * 最大速度
+        //        // 原速度方向 = 原速度 / 原速度长度
+        //        Projectile.velocity = Projectile.velocity / currentSpeed * maxSpeed;
+        //    }
+        //}
+        // 新增角度变量（类中定义）
+        private float _orbitAngle = 0f;
+        // 公转基础速度（正数=逆时针，负数=顺时针）
+        private float _orbitSpeed = 0.05f;
+        // 公转半径（5格 = 5 * 16像素）
+        private float _orbitRadius = 5 * 16f;
+        // 移动平滑系数
+        private float _moveSmoothness = 0.1f;
+        // 记录当前最优旋转方向（避免频繁切换）
+        private int _optimalDirection = 1; // 1=逆时针，-1=顺时针
+                                           // 随机数生成器（类中定义，确保随机性稳定）
+        private Random _random = new Random();
+
         private void MoveAroundPlayer(Player player)
         {
-            Vector2 diff = Projectile.Center - player.Center;
-            diff.Normalize();
-            Projectile.velocity -= diff * 0.2f;
+            // ========== 新增：随机切换旋转方向逻辑 ==========
+            // 每个滴答（帧）有1/1000的概率切换方向
+            int randomValue = _random.Next(1000); // 生成0-999的随机数
+            if (randomValue == 0) // 只有随机数为0时触发（概率1/1000）
+            {
+                //Main.NewText("CHANGE!");
+                _optimalDirection *= -1; // 切换方向：1变-1，-1变1
+            }
 
-            if (Projectile.Center.X < player.Center.X)
+            // 1. 计算召唤物当前位置对应的角度
+            Vector2 diffFromPlayer = Projectile.Center - player.Center;
+            float currentAngle = (float)Math.Atan2(diffFromPlayer.Y, diffFromPlayer.X);
+
+            // 2. 计算目标角度（理想公转位置）
+            float targetAngle = _orbitAngle;
+
+            // 3. 计算两个方向的角度差（取最小差值，避免绕整圆）
+            float clockwiseDiff = MathHelper.WrapAngle(targetAngle - currentAngle); // 顺时针差值
+            float counterClockwiseDiff = MathHelper.WrapAngle(currentAngle - targetAngle); // 逆时针差值
+
+            // 4. 判断更平滑的旋转方向（仅在未随机切换时生效）
+            // 注：随机切换后会优先使用新方向，直到下一次随机或平滑逻辑重新主导
+            //if (Math.Abs(clockwiseDiff) < Math.Abs(counterClockwiseDiff) && randomValue != 0)
+            //{
+            //    _optimalDirection = -1; // 顺时针更平滑
+            //}
+            //else if (randomValue != 0)
+            //{
+            //    _optimalDirection = 1; // 逆时针更平滑
+            //}
+
+            // 5. 更新公转角度（使用当前方向，包含随机切换后的方向）
+            _orbitAngle += _orbitSpeed * _optimalDirection;
+            // 重置角度避免数值过大（简化写法，等价于原逻辑）
+            _orbitAngle = MathHelper.WrapAngle(_orbitAngle);
+
+            // 6. 计算公转的目标位置
+            float targetX = player.Center.X + (float)Math.Cos(_orbitAngle) * _orbitRadius;
+            float targetY = player.Center.Y + (float)Math.Sin(_orbitAngle) * _orbitRadius;
+            Vector2 targetPos = new Vector2(targetX, targetY);
+
+            // 7. 平滑移动到目标位置
+            Vector2 moveDiff = targetPos - Projectile.Center;
+            Projectile.velocity = moveDiff * _moveSmoothness;
+
+            // 8. 速度上限控制
+            float maxSpeed = 4f;
+            float currentSpeed = Projectile.velocity.Length();
+            if (currentSpeed > maxSpeed && currentSpeed > 0)
             {
-                Projectile.velocity.X += _nearPlayerSpeed;
-            }
-            if (Projectile.Center.X > player.Center.X)
-            {
-                Projectile.velocity.X -= _nearPlayerSpeed;
-            }
-            if (Projectile.Center.Y < player.Center.Y)
-            {
-                Projectile.velocity.Y += _nearPlayerSpeed;
-            }
-            if (Projectile.Center.Y > player.Center.Y)
-            {
-                Projectile.velocity.Y -= _nearPlayerSpeed;
+                Projectile.velocity = Projectile.velocity / currentSpeed * maxSpeed;
             }
         }
 
