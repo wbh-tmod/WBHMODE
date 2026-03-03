@@ -78,9 +78,9 @@ namespace WBHMODE.Content.Projectiles
         private const int ExplodeDistance = 60;      // 自爆距离
         private const int ExplodeTimer = 2;          // 自爆计时
 
-        private const float MaxView = 120 * 16f;       // 最大索敌视野
+        private const float MaxView = 100 * 16f;       // 最大索敌视野
                                                        // 攻击相关常量（可根据需求调整）
-        private float CollisionDistance = 60 * 16f; // 近距离/远距离分界（单位：格）
+        private const float CollisionDistance = 50 * 16f; // 近距离/远距离分界（单位：格）
         private int CloseAttackDamage = 20;    // 近距离冲撞伤害
         private int LongAttackDamage = 40;     // 远距离冲刺伤害
         private int CloseHitInvincibility = 15; // 近距离击中无敌帧（嘀嗒）
@@ -223,16 +223,18 @@ namespace WBHMODE.Content.Projectiles
                         }
 
                         // 计算敌怪与玩家的距离（转换为格：像素/16）
-                        float distanceToPlayer = Vector2.Distance(tar.Center, Main.player[Projectile.owner].Center) / 16f;
+                        float distanceToPlayer = Vector2.Distance(tar.Center, Main.player[Projectile.owner].Center);
 
                         // 1. 近距离冲撞攻击（敌怪在CollisionDistance格内）
                         if (distanceToPlayer <= CollisionDistance && !_isDashing)
                         {
+                            //Main.NewText("Close:" + distanceToPlayer / 16f);
                             CloseRangeRamAttack(tar);
                         }
                         // 2. 远距离冲刺攻击（敌怪超出范围，且冲刺冷却完成）
                         else if (distanceToPlayer > CollisionDistance && _dashCooldownTimer <= 0)
                         {
+                            //Main.NewText("Far:" + distanceToPlayer / 16f);
                             LongRangeDashAttack(tar);
                         }
                         // 3. 处理冲刺后的持续移动
@@ -655,7 +657,7 @@ namespace WBHMODE.Content.Projectiles
             // 记录冲刺方向
             _dashDirection = (target.Center - Projectile.Center).SafeNormalize(Vector2.Zero);
             // 设置冲刺速度（比近距离更快，建议8-10）
-            Projectile.velocity = _dashDirection * 9f;
+            Projectile.velocity = _dashDirection * 40f;
             // 重置冲刺后移动计时器（2格距离对应的移动时长，根据速度计算）
             _dashMoveTimer = (DashMoveDistance * 16f) / Projectile.velocity.Length();
             // 启动冲刺冷却（2秒 = 120帧）
