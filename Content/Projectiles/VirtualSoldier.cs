@@ -112,6 +112,8 @@ namespace WBHMODE.Content.Projectiles
             Projectile.minion = true;
             ProjectileID.Sets.MinionSacrificable[Type] = true;
             ProjectileID.Sets.CultistIsResistantTo[Type] = true;
+            Projectile.localNPCHitCooldown = 15;
+            Projectile.idStaticNPCHitCooldown = 12;
         }
 
         /// <summary>
