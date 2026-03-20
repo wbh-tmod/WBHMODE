@@ -48,12 +48,7 @@
 
 # WBH_MODE
 
-## 已实现
-
-流动石块 FlowingStone<br>
-流动沙块 FlowingSand<br>
-流动沙块弹幕 FlowingSandBallFallingProjectile<br>
-液金矿 LiquidGoldOre<br>
+## 此分支应用于虚像兵
 
 ## BUGS
 

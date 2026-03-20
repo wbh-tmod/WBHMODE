@@ -88,6 +88,8 @@ namespace WBHMODE.Content.Projectiles
         private float DashCooldown = 2f;       // 冲刺冷却（秒）
         private float DashMoveDistance = 2f;   // 冲刺后额外移动距离（格）
 
+        private int pos = 0; // 击退方向
+        private const int knockBack = 2; // 击退力
         // 状态控制变量
         private float _dashCooldownTimer = 0f; // 冲刺冷却计时器（帧，1秒=60帧）
         private bool _isDashing = false;       // 是否正在冲刺
@@ -166,6 +168,7 @@ namespace WBHMODE.Content.Projectiles
             ProjectileState prevState = State;
 
             NPC tar = null;
+            pos = 0; // 击退方向
             NPC npc = FindCloestEnemy(Projectile.Center, MaxView, (n) =>
             {
                 return n.CanBeChasedBy() && !n.dontTakeDamage;
@@ -176,6 +179,16 @@ namespace WBHMODE.Content.Projectiles
             if (tar != null)
             {
                 State = ProjectileState.Attack;
+                if (tar.Center.X < Projectile.Center.X)
+                {
+                    // tar在Projectile左侧
+                    pos = 1;
+                }
+                else if (tar.Center.X > Projectile.Center.X)
+                {
+                    // tar在Projectile右侧
+                    pos = -1;
+                }
             }
             else
             {
@@ -229,18 +242,18 @@ namespace WBHMODE.Content.Projectiles
                         if (distanceToPlayer <= CollisionDistance && !_isDashing)
                         {
                             //Main.NewText("Close:" + distanceToPlayer / 16f);
-                            CloseRangeRamAttack(tar);
+                            CloseRangeRamAttack(tar, pos);
                         }
                         // 2. 远距离冲刺攻击（敌怪超出范围，且冲刺冷却完成）
                         else if (distanceToPlayer > CollisionDistance && _dashCooldownTimer <= 0)
                         {
                             //Main.NewText("Far:" + distanceToPlayer / 16f);
-                            LongRangeDashAttack(tar);
+                            LongRangeDashAttack(tar, pos);
                         }
                         // 3. 处理冲刺后的持续移动
                         else if (_isDashing)
                         {
-                            HandleDashAfterMove();
+                            HandleDashAfterMove(pos);
                         }
 
                         break;
@@ -612,7 +625,7 @@ namespace WBHMODE.Content.Projectiles
         /// 近距离冲撞攻击：向目标移动并造成碰撞伤害，击中后目标获得15嘀嗒无敌帧
         /// </summary>
         /// <param name="target">锁定的敌怪</param>
-        private void CloseRangeRamAttack(NPC target)
+        private void CloseRangeRamAttack(NPC target, int hitDirection)
         {
             // 计算向目标移动的方向（归一化，避免速度过快）
             Vector2 moveDir = (target.Center - Projectile.Center).SafeNormalize(Vector2.Zero);
@@ -625,16 +638,16 @@ namespace WBHMODE.Content.Projectiles
             {
                 // 造成伤害（参数：伤害值、击退、无敌帧）
 
-                target.SimpleStrikeNPC(
-                            Projectile.damage + 10,          // 第1个参数：伤害值（近战伤害+10）
-                                                             //hitDirection,                    // 第3个参数：打击方向（1=右，-1=左）
-                            1,
-                            false,                           // 第4个参数：是否暴击（默认false）
-                            0f,
-                            //Projectile.knockBack,            // 第2个参数：击退力
-                            DamageClass.Summon,                           // 第5个参数：伤害种类
-                            false                            // 第6个参数：是否禁止玩家交互（默认false）
-                        );
+                //target.SimpleStrikeNPC(
+                //            Projectile.damage + 10,          // 第1个参数：伤害值（近战伤害+10）
+                //                                             //hitDirection,                    // 第3个参数：打击方向（1=右，-1=左）
+                //            hitDirection,
+                //            false,                           // 第4个参数：是否暴击（默认false）
+                //            knockBack,
+                //            //Projectile.knockBack,            // 第2个参数：击退力
+                //            DamageClass.Summon,                           // 第5个参数：伤害种类
+                //            false                            // 第6个参数：是否禁止玩家交互（默认false）
+                //        );
                 //target.StrikeNPC(CloseAttackDamage, 0f, 0, false, false, false);
                 //// 设置15嘀嗒局部无敌帧（只对当前召唤物生效）
                 //target.immune[Projectile.owner] = CloseHitInvincibility;
@@ -650,7 +663,7 @@ namespace WBHMODE.Content.Projectiles
         /// 远距离冲刺攻击：高速冲刺，对路径上所有敌怪造成伤害，击中后目标获得12嘀嗒静态无敌帧
         /// </summary>
         /// <param name="target">锁定的敌怪</param>
-        private void LongRangeDashAttack(NPC target)
+        private void LongRangeDashAttack(NPC target, int hitDirection)
         {
             // 标记开始冲刺
             _isDashing = true;
@@ -673,17 +686,17 @@ namespace WBHMODE.Content.Projectiles
                 if (Projectile.Hitbox.Intersects(npc.Hitbox))
                 {
                     // 造成更高的远距离伤害
-                    //npc.StrikeNPC(LongAttackDamage, 0f, 0, false, false, false);
-                    npc.SimpleStrikeNPC(
-                                Projectile.damage + 10,          // 第1个参数：伤害值（近战伤害+10）
-                                //hitDirection,                    // 第3个参数：打击方向（1=右，-1=左）
-                                1,
-                                false,                           // 第4个参数：是否暴击（默认false）
-                                0f,
-                                //Projectile.knockBack,            // 第2个参数：击退力
-                                DamageClass.Summon,                           // 第5个参数：伤害种类
-                                false                            // 第6个参数：是否禁止玩家交互（默认false）
-                            );
+                    ////npc.StrikeNPC(LongAttackDamage, 0f, 0, false, false, false);
+                    //npc.SimpleStrikeNPC(
+                    //            Projectile.damage + 10,          // 第1个参数：伤害值（近战伤害+10）
+                    //            //hitDirection,                    // 第3个参数：打击方向（1=右，-1=左）
+                    //            hitDirection,
+                    //            false,                           // 第4个参数：是否暴击（默认false）
+                    //            knockBack,
+                    //            //Projectile.knockBack,            // 第2个参数：击退力
+                    //            DamageClass.Summon,                           // 第5个参数：伤害种类
+                    //            false                            // 第6个参数：是否禁止玩家交互（默认false）
+                    //        );
                     // 设置12嘀嗒静态无敌帧
                     //npc.immune[Projectile.owner] = LongHitInvincibility;
                     //npc.immuneTime = LongHitInvincibility;
@@ -701,7 +714,7 @@ namespace WBHMODE.Content.Projectiles
         /// <summary>
         /// 冲刺击中目标后，沿原方向继续移动2格后停下，并尝试继续造成碰撞伤害
         /// </summary>
-        private void HandleDashAfterMove()
+        private void HandleDashAfterMove(int hitDirection)
         {
             // 沿原冲刺方向继续移动
             Projectile.velocity = _dashDirection * 9f;
@@ -721,7 +734,7 @@ namespace WBHMODE.Content.Projectiles
                                                                  //hitDirection,                    // 第3个参数：打击方向（1=右，-1=左）
                                 1,
                                 false,                           // 第4个参数：是否暴击（默认false）
-                                0f,
+                                knockBack,
                                 //Projectile.knockBack,            // 第2个参数：击退力
                                 DamageClass.Summon,                           // 第5个参数：伤害种类
                                 false                            // 第6个参数：是否禁止玩家交互（默认false）
